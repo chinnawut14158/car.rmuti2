@@ -1,0 +1,140 @@
+<?php
+include('connect.php');
+session_start();
+$level = $_SESSION['userlevel'];
+ 	if($level!='1'){
+    Header("Location:logout.php");  
+  }  
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>CarBooking RMUTI</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+    <link href="css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <?php
+    include('ul.php');
+
+    if (isset($_GET['id'])) {
+        //ดึงข้อมูล จากไอดี มาทำการแก้ไข
+            $sql    = "SELECT * FROM events WHERE id = '" . $_GET['id'] . "'";
+            $result = $conn->query($sql);
+            $row    = $result->fetch_assoc();
+  ?>
+    <!-- EndNavbar -->
+    <div class="container">
+        <main>
+            <div class="row g-5">
+                <div class="col-md-7 col-lg-12" style="padding:50px 100px 0px 100px;">
+                    <center>
+                        <h4 class="mb-3">เพิ่มข้อมูลหลังจากเดินทาง</h4>
+                    </center>
+                    <form class="needs-validation" name="from1" method="post" action="save_after.php"
+                        enctype="multipart/form-data">
+                        <div class="table-responsive">
+                    <table class="table  ">
+                        <thead>
+                                <th>เวลารถออก</th>
+                                <th>เวลารถเข้า</th>
+                                <th>ลงชื่อแผนกรักษาความปลอดภัย (ออก)</th>
+                                <th>ลงชื่อแผนกรักษาความปลอดภัย (เข้า)</th>
+                        </thead>
+                        <tbody>
+                        <input type="hidden" class="form-control" id="id" name="id" placeholder="กรอกข้อมูล" value="<?php echo $row['id']; ?>" required="">
+                        <div class="col-sm-6">
+                                <label for="lastName" class="form-label">เข็มไมล์ (ก่อนใช้)</label>
+                                <input type="text" class="form-control" id="mile_st" name="mile_st"
+                                    placeholder="กรอกข้อมูล" value="" >
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                        </div>
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">เข็มไมล์ (หลังใช้)</label>
+                                <input type="text" class="form-control" id="mile_end" name="mile_end"
+                                    placeholder="กรอกข้อมูล" value="" >
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>    
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">วันที่ออก</label>
+                                <input type="date" class="form-control" id="date_out" name="date_out"
+                                    placeholder="กรอกข้อมูล" value="" >
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>    
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">วันที่เข้า</label>
+                                <input type="date" class="form-control" id="date_in" name="date_in"
+                                    placeholder="กรอกข้อมูล" value="" >
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>    
+                        <tr>
+                                <td>
+                                    <input type="time" class="form-control" id="time_out" name="time_out" placeholder="กรอกข้อมูล" value=""required="">
+                                </td>
+                                <td>
+                                    <input type="time" class="form-control" id="time_in" name="time_in" placeholder="กรอกข้อมูล" value=""required="">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="sec_out" name="sec_out" placeholder="กรอกข้อมูล" value=""required="">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="sec_in" name="sec_in" placeholder="กรอกข้อมูล" value=""required="">
+                                </td>
+                            </tr>
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">การเดินทาง</label>
+                                <select class="form-select" id="status" name="status" required="" >
+                                    <option value="">เลือก...</option>
+                                    <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                    <option value="เดินทางสำเสร็จ">เดินทางสำเสร็จ</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid country.
+                                </div>
+                        </div>
+                        </tbody>
+                    </table>
+                            <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit">บันทึก</button>
+                        </div>
+                    </form>
+<?php
+    }
+?>
+                </div>
+            </div>
+        </main>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2017–2022 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+    <script src="form-validation.js"></script>
+</body>
+
+</html>
