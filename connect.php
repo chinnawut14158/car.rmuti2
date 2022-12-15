@@ -1,7 +1,7 @@
 <?php 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "chin";
+    $password = "Chin1234!";
     $dbname = "projectcalendar";
 
     // สร้างคำสั่งลัด ให็เป็น $conn
