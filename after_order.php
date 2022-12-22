@@ -44,76 +44,61 @@ $level = $_SESSION['userlevel'];
                     </center>
                     <form class="needs-validation" name="from1" method="post" action="save_after.php"
                         enctype="multipart/form-data">
-                        <div class="table-responsive">
-                    <table class="table  ">
-                        <thead>
-                                <th>เวลารถออก</th>
-                                <th>เวลารถเข้า</th>
-                                <th>ลงชื่อแผนกรักษาความปลอดภัย (ออก)</th>
-                                <th>ลงชื่อแผนกรักษาความปลอดภัย (เข้า)</th>
-                        </thead>
-                        <tbody>
+                        <div class="row g-3">
                         <input type="hidden" class="form-control" id="id" name="id" placeholder="กรอกข้อมูล" value="<?php echo $row['id']; ?>" required="">
-                        <div class="col-sm-6">
-                                <label for="lastName" class="form-label">เข็มไมล์ (ก่อนใช้)</label>
-                                <input type="text" class="form-control" id="mile_st" name="mile_st"
-                                    placeholder="กรอกข้อมูล" value="" >
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
-                        </div>
+                        <div class="row g-3">
+
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">เข็มไมล์ (ก่อนใช้)</label>
+                                <input type="text" class="form-control" id="mile_st" name="mile_st" placeholder="กรอกข้อมูล"
+                                    value="" required="">
+                            </div>
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">เข็มไมล์ (หลังใช้)</label>
                                 <input type="text" class="form-control" id="mile_end" name="mile_end"
-                                    placeholder="กรอกข้อมูล" value="" >
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
-                            </div>    
-                            <div class="col-sm-6">
+                                    placeholder="กรอกข้อมูล" value="" required="">
+                            </div>
+                            <div class="col-sm-3">
                                 <label for="lastName" class="form-label">วันที่ออก</label>
                                 <input type="date" class="form-control" id="date_out" name="date_out"
-                                    placeholder="กรอกข้อมูล" value="" >
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
-                            </div>    
-                            <div class="col-sm-6">
+                                    placeholder="กรอกข้อมูล" value="" required="">
+                            </div>
+                            <div class="col-sm-3">
                                 <label for="lastName" class="form-label">วันที่เข้า</label>
                                 <input type="date" class="form-control" id="date_in" name="date_in"
+                                    placeholder="กรอกข้อมูล" value="" required="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="lastName" class="form-label">เวลารถออก</label>
+                                <input type="time" class="form-control" id="time_out" name="time_out"
                                     placeholder="กรอกข้อมูล" value="" >
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
-                            </div>    
-                        <tr>
-                                <td>
-                                    <input type="time" class="form-control" id="time_out" name="time_out" placeholder="กรอกข้อมูล" value=""required="">
-                                </td>
-                                <td>
-                                    <input type="time" class="form-control" id="time_in" name="time_in" placeholder="กรอกข้อมูล" value=""required="">
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" id="sec_out" name="sec_out" placeholder="กรอกข้อมูล" value=""required="">
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" id="sec_in" name="sec_in" placeholder="กรอกข้อมูล" value=""required="">
-                                </td>
-                            </tr>
+                            </div>   
+                            <div class="col-sm-3">
+                                <label for="lastName" class="form-label">เวลารถเข้า</label>
+                                <input type="time" class="form-control" id="time_in" name="time_in"
+                                    placeholder="กรอกข้อมูล" value="" >
+                            </div>   
                             <div class="col-sm-6">
+                                <label for="lastName" class="form-label">ลงชื่อแผนกรักษาความปลอดภัย (ออก)</label>
+                                <input type="text" class="form-control" id="sec_out" name="sec_out"
+                                    placeholder="กรอกข้อมูล" value="" >
+                            </div> 
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">ลงชื่อแผนกรักษาความปลอดภัย (เข้า)</label>
+                                <input type="text" class="form-control" id="sec_in" name="sec_in"
+                                    placeholder="กรอกข้อมูล" value="" >
+                            </div>   
+                            <div class="col-sm-12">
                                 <label for="lastName" class="form-label">การเดินทาง</label>
                                 <select class="form-select" id="status" name="status" required="" >
                                     <option value="">เลือก...</option>
                                     <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
                                     <option value="เดินทางสำเสร็จ">เดินทางสำเสร็จ</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid country.
-                                </div>
-                        </div>
-                        </tbody>
-                    </table>
-                            <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit">บันทึก</button>
+                            </div>
+                            <hr class="my-4">
+
+                        <button class="w-100 btn btn-success btn-lg" type="submit" name="submit">บันทึก</button>
                         </div>
                     </form>
 <?php

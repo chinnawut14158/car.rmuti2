@@ -39,7 +39,7 @@ $level = $_SESSION['userlevel'];
   <!-- EndNavbar -->
 <main>
   <div class="container">
-        <div class="row" style="padding:50px 1px 0px 1px;">
+        <div class="row" style="padding:50px 0px 0px 0px;">
             <div class="col">
                 <center><h1>รายการจองการจอง</h1></center>
                 <div class="table-responsive">
@@ -78,8 +78,8 @@ $level = $_SESSION['userlevel'];
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                     // echo "<th>" . $row['id'] . "</th>";
-                                    echo "<th><img src='img/" . $row['photo'] . "'width=200 height=200 ></th>";
-                                    echo "<th><img src='car/" . $row['vehicle_photo'] . "'width=200 height=200 ></th>";
+                                    echo "<th><img src='img/" . $row['photo'] . "'width=100 height=100 ></th>";
+                                    echo "<th><img src='car/" . $row['vehicle_photo'] . "'width=100 height=100 ></th>";
                                     echo "<th>" . $row['license_plate'] . "</th>";
                                     echo "<th>" . $row['request_for'] . "</th>";
                                     echo "<th>" . $row['in_out'] . "</th>";

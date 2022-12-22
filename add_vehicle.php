@@ -44,15 +44,19 @@ session_start();
                                         <label for="" class="form-label">ยี่ห้อรถ</label>
                                         <input type="text" class="form-control" id="" name="vehicle_name" placeholder="กรอกยี่ห้อรถ" value="" required="">
                                     </div>
-                                    <div class="col-md-12">
+                                    <?php
+                                        $res = mysqli_query($conn, "SELECT * FROM type");
+                                    ?>
+                                        <div class="col-md-12">
                                         <label for="country" class="form-label">ประเภทรถ</label>
-                                        <select class="form-select" id="type_id" required="" name="type_id">
-                                            <option value="">เลือก...</option>
-                                            <option value="1">รถกระบะ</option>
-                                            <option value="2">รถเก๋ง</option>
-                                            <option value="3">รถบัส</option>
-                                            <option value="4">รถมินิบัส</option>
-                                            <option value="5">รถตู้</option>
+                                        <select class="form-select" id="type_id" name="type_id">
+                                        <option value="0">เลือกประเภทรถ</option>
+                                    <?php
+                                        while ($row2 = mysqli_fetch_array($res)) {
+                                    echo ("<option value='" . $row2['id'] . "'>" . $row2['type_name'] ."</option>");
+                                    // echo ("<option value='" . $row['driver_id   fname'] ."</option>");
+                                        }
+                                    ?>
                                         </select>
                                     </div>
                                     <div class="row g-3">

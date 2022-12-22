@@ -63,7 +63,7 @@ $level = $_SESSION['userlevel'];
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                     // echo "<th>" . $row['vehicle_id'] . "</th>";
-                                    echo "<th><img src='car/" . $row['vehicle_photo'] . "'width=200 height=200' ></th>";
+                                    echo "<th><img src='car/" . $row['vehicle_photo'] . "'width=100 height=100' ></th>";
                                     echo "<th>" . $row['type_name'] . "</th>";
                                     echo "<th>" . $row['vehicle_name'] . "</th>";
                                     echo "<th>" . $row['seat'] . "</th>";

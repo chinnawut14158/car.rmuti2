@@ -76,7 +76,7 @@ $level = $_SESSION['userlevel'];
                                 <label for="" class="form-label">ขออนุญาตใช้รถยนต์ ราชการ เพื่อเดินทางไป
                                     (สถานที่ไป)</label>
                                 <input type="text" class="form-control" id="location" name="location"
-                                    placeholder="กรอกรายละเอียดการเดินทาง" value="" required="">
+                                    placeholder="กรอกสถานที่เดินทาง" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
@@ -85,7 +85,7 @@ $level = $_SESSION['userlevel'];
                             <div class="col-sm-12">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
                                 <input type="text" class="form-control" id="passenger" name="passenger"
-                                    placeholder="กรอกรายละเอียดการเดินทาง" value="" required="">
+                                    placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
@@ -94,7 +94,7 @@ $level = $_SESSION['userlevel'];
                             <div class="col-sm-12">
                                 <label for="" class="form-label">เพื่อปฎิบัติหน้าที่</label>
                                 <input type="text" class="form-control" id="request_for" name="request_for"
-                                    placeholder="กรอกรายละเอียดการเดินทาง" value="" required="">
+                                    placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
@@ -194,7 +194,7 @@ $level = $_SESSION['userlevel'];
                                 <label for="lastName"
                                     class="form-label">ผู้อนุญาตให้รถยนต์ราชการออกนอกเขตวิทยาเขตฯ</label>
                                 <input type="text" class="form-control" id="manager_name" name="manager_name"
-                                    placeholder="กรอกข้อมูล" value="" required="">
+                                    placeholder="ลงชื่อผู้ขออนุญาต" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid last name is required.
                                 </div>

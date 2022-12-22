@@ -100,11 +100,13 @@ $level = $_SESSION['userlevel'];
                                             <option value="2">พนักงานขับรถ</option>
                                         </select>
                                     </div>
-                                    <!-- <div class="col-sm-12">
+                                    <div class="col-sm-12">
                                         <label for="" class="form-label">รูปภาพ</label>
                                         <input type="file" class="form-control" name="my_image" id="my_image"
                                             placeholder="" value="" required="">
-                                    </div> -->
+                                    </div>
+                                    <input type="hidden" class="form-control" name="image"
+                                        id="image" value="<?php echo $row['photo']; ?>">
                                 </div>
                                 <hr class="my-4">
                                 <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit"

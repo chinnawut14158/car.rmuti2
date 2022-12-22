@@ -59,18 +59,26 @@ session_start();
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                     echo "<th>" . $row['token'] . "</th>";
-                                    echo "<th><a href='edit_line.php?id=" . $row['notify_id'] . "'>แก้ไขข้อมูล</th>";
+                                    echo "<th><a href='edit_line.php?id=" . $row['notify_id'] . "'input type='submit'class='btn btn-info'>แก้ไขข้อมูล</th>";
                                     // echo "<th><a href='order_del.php?id=" . $row['notify_id'] . "'>ลบข้อมูล</th>";
                                     echo "</tr>";
                                 }
                             } else {
                                 echo "<tr>";
-                                echo "<th colspan='4'>ยังไม่มีคำขอใช้บริการ</th>";
+                                echo "<th colspan='2'>ยังไม่มี Token</th>";
                                 echo "</tr>";
                             }
                             ?>
                             </tbody>
                         </table>
+                        <?php
+                        if ($result->num_rows <= 0) {
+                            ?>
+                                <button class="w-100 btn btn-primary btn-lg"
+                        onclick="location.href='add_line.php'">เพิ่มโทเคนไลน์</button>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

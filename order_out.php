@@ -248,7 +248,7 @@ $level = $_SESSION['userlevel'];
                             <?php
                                 $res = mysqli_query($conn, "SELECT * FROM user WHERE userlevel = 2");
                             ?>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                             <label for="country" class="form-label">คนขับ</label>
                             <select class="form-select" id="driver_id" name="driver_id">
                                 <option value="0">เลือกคนขับ</option>

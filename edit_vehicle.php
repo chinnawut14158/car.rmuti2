@@ -55,18 +55,23 @@ $level = $_SESSION['userlevel'];
                                             placeholder="กรอกยี่ห้อรถ" value="<?php echo $row['vehicle_name']; ?>"
                                             required="">
                                     </div>
-                                    <div class="col-md-12">
+                                    <div>
+                                    <?php
+                                        $res = mysqli_query($conn, "SELECT * FROM type");
+                                    ?>
+                                        <div class="col-md-12">
                                         <label for="country" class="form-label">ประเภทรถ</label>
-                                        <select class="form-select" id="type_id" required="" name="type_id">
-                                            <option value="">เลือก...</option>
-                                            <option value="1">รถกระบะ</option>
-                                            <option value="2">รถเก๋ง</option>
-                                            <option value="3">รถบัส</option>
-                                            <option value="4">รถมินิบัส</option>
-                                            <option value="5">รถตู้</option>
+                                        <select class="form-select" id="type_id" name="type_id">
+                                        <option value="0">เลือกประเภทรถ</option>
+                                    <?php
+                                        while ($row2 = mysqli_fetch_array($res)) {
+                                    echo ("<option value='" . $row2['id'] . "'>" . $row2['type_name'] ."</option>");
+                                        }
+                                    ?>
                                         </select>
                                     </div>
-                                    <div class="row g-3">
+                                    
+                                        <div class="row g-3">
                                         <div class="col-sm-12">
                                             <label for="" class="form-label">หมายเลขทะเบียนรถ</label>
                                             <input type="text" class="form-control" id=""
@@ -81,14 +86,16 @@ $level = $_SESSION['userlevel'];
                                                     placeholder="กรอกจำนวนที่นั่ง" value="<?php echo $row['seat']; ?>"
                                                     required="" name="seat">
                                             </div>
-                                            <!-- <div class="row g-3">
+                                            <div class="row g-3">
                                                 <div class="col-sm-12">
-                                                    <label for="" class="form-label">รูปภาพยานพานะ</label>
+                                                    <label for="" class="form-label">รูปภาพยานพานะ มีแล้วไม่ต้องใส่</label>
                                                     <input type="file" class="form-control" name="my_image"
-                                                        id="my_image" placeholder="ใส่ช่องอัปโหลดรูปภาพ" value=""
-                                                        required="">
+                                                        id="my_image" value="<?php echo $row['vehicle_photo']; ?>">
                                                 </div>
-                                            </div> -->
+                                            </div>
+                                                    <input type="hidden" class="form-control" name="image"
+                                                        id="image" value="<?php echo $row['vehicle_photo']; ?>">
+                                            
                                             <hr class="my-4">
                                             <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit"
                                                 id="savecar">บันทึก</button>
