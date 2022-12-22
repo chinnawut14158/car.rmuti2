@@ -65,7 +65,7 @@ session_start();
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
-                                    echo "<th><img src='img/" . $row['photo'] . "'width=200 height=200' ></th>";
+                                    echo "<th><img src='img/" . $row['photo'] . "'width=100 height=100' ></th>";
                                     echo "<th>" . $row['pre'] . "</th>";
                                     echo "<th>" . $row['fname'] . "</th>";
                                     echo "<th>" . $row['lname'] . "</th>";
