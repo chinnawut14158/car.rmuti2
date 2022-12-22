@@ -1,14 +1,12 @@
 <?php
 include('connect.php');
 session_start();
-// $datetimet = mysqli_real_escape_string($conn, $_POST['datetimet']);
 
 if (isset($_POST['submit'])) {
 
 	$datetimeTst = mysqli_real_escape_string($conn, $_POST['datetimeTst']);
 	$datetimeTend = mysqli_real_escape_string($conn, $_POST['datetimeTend']);
 
-    // $datetimet = mysqli_real_escape_string($conn, $_POST['datetimet']);
 	$fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
 	$position = mysqli_real_escape_string($conn, $_POST['position']);
@@ -24,7 +22,6 @@ if (isset($_POST['submit'])) {
 	$driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
     $manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
 	$name_request = mysqli_real_escape_string($conn, $_POST['name_request']);
-	// $status = mysqli_real_escape_string($conn, $_POST['status']);
 
 	$_SESSION['fname'] = $fname;
 	$_SESSION['lname'] = $lname;

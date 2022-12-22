@@ -26,9 +26,6 @@ if (isset($_POST['submit'])) {
     $status = mysqli_real_escape_string($conn, $_POST['status']);
     $remark = mysqli_real_escape_string($conn, $_POST['remark']);
 
-    // $type = mysqli_real_escape_string($conn, $_POST['country']);
-    // $license_plate = mysqli_real_escape_string($conn, $_POST['state']);
-	// $driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
     $license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
     $vehicle_id = mysqli_real_escape_string($conn, $_POST['vehicle_id']);
 	$driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
