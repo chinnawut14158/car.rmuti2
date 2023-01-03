@@ -74,12 +74,12 @@ if (isset($_POST['submit'])) {
 				        VALUES(NULL, '$location', '$request_for', '$location', '$date_from', '$date_to', '$time_from', '$time_to'
 						, '$datetimeTst','$datetimeTend',NOW())";	
 				mysqli_query($conn, $sql2);
-                // echo "<script> alert('บันทึกสำเร็จ'); window.location = './line_notify.php';</script>";
+
 				echo "<script> alert('กำลังส่งข้อมูลไปยัง ปฏิทิน'); window.location = './quickstart.php';</script>";
 			}else{
-				echo "<script> alert('คนขับซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_in.php';</script>";
+				echo "<script> alert('คนขับซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_out.php';</script>";
 				}
 		} else {
-			echo "<script> alert('รถซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_in.php';</script>";
+			echo "<script> alert('รถซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_out.php';</script>";
 		}
 	}

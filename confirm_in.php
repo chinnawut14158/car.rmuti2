@@ -6,7 +6,7 @@ session_start();
  	if($level!='1'){
     Header("Location:logout.php");  
   }  
-if (isset($_POST['submit'])) {
+// if (isset($_POST['submit'])) {
 
 	$fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
@@ -239,7 +239,7 @@ if (isset($_POST['submit'])) {
 
                     </form>
                     <?php
-}
+// }
 ?>
                 </div>
             </div>

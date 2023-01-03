@@ -20,8 +20,8 @@
         <li class="nav-item"><a href="list_request.php" class="nav-link link-light px-2">รายการจองทั้งหมด</a></li>
         <li class="nav-item"><a href="list_vehicle.php" class="nav-link link-light px-2">ยานพาหนะ</a></li>
         <li class="nav-item"><a href="list_user.php" class="nav-link link-light px-2">บุคลากร</a></li>
-        <li class="nav-item"><a href="chart.php" class="nav-link link-light px-2">รายงาน</a></li>
-        <li class="nav-item"><a href="#" class="nav-link link-light px-2">คู่มือการใช้งาน</a></li>
+        <!-- <li class="nav-item"><a href="chart.php" class="nav-link link-light px-2">รายงาน</a></li> -->
+        <!-- <li class="nav-item"><a href="#" class="nav-link link-light px-2">คู่มือการใช้งาน</a></li> -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">ตั้งค่า</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown04">
