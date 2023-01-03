@@ -61,16 +61,15 @@ if (isset($_POST['submit'])) {
 	if(mysqli_num_rows($result)==0){
         if(mysqli_num_rows($result2)==0){
 		    // Insert into Database events
-				$sql = "INSERT INTO events 
-									(id ,in_out ,fname,lname,position,location,passenger,request_for,
-									date_from,date_to,time_from,time_to,name_request,vehicle_id,driver_id,manager_name, manager_date, status , status_order, created) 
+				$sql = "INSERT INTO `events` (`id` ,`in_out` ,`fname`,`lname`,`position`,`location`,`passenger`,`request_for`,
+					`date_from`,`date_to`,`time_from`,`time_to`,`name_request`,`vehicle_id`,`driver_id`,`manager_name`,
+					`manager_date`,`status` ,`status_order`,`created`) 
 				        VALUES(NULL, 'ภายในอำเภอเมือง', '$fname', '$lname', '$position', '$location', '$passenger', '$request_for'
 						, '$date_from','$date_to', '$time_from', '$time_to', '$name_request', '$license_plate,', '$driver_id', '$manager_name',NOW(), 'อนุมัติ','กำลังดำเนินการ', NOW())";	
 				mysqli_query($conn, $sql);
 
 			// Insert into Database	event_google
-				$sql2 = "INSERT INTO event_google
-									(id ,title ,description,location,date_from,date_to,time_from,time_to,datetimeTst,datetimeTend,created) 
+				$sql2 = "INSERT INTO `event_google` (`id` ,`title` ,`description`,`location`,`date_from`,`date_to`,`time_from`,`time_to`,`datetimeTst`,`datetimeTend`,`created`) 
 				        VALUES(NULL, '$location', '$request_for', '$location', '$date_from', '$date_to', '$time_from', '$time_to'
 						, '$datetimeTst','$datetimeTend',NOW())";	
 				mysqli_query($conn, $sql2);
