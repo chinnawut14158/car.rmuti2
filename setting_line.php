@@ -42,7 +42,7 @@ session_start();
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered table-striped">
                             <thead>
-                                <tr class="bg-primary text-white">
+                            <tr style="background-color:fdc500">
                                     <th>Token</th>
                                     <th>แก้ไข</th>
                                     <!-- <th>ลบ</th> -->
@@ -50,7 +50,7 @@ session_start();
                             </thead>
 
                             <!-- ดึงข้อมูลมาจากดาต้าเบส -->
-                            <tbody>
+                            <tbody style="background-color:ffffe0">
                                 <?php
                             // แสดงข้อมูลในตาราง
                             $sql = "SELECT * FROM notify_line"; 

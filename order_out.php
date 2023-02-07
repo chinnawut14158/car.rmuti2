@@ -25,15 +25,12 @@ $level = $_SESSION['userlevel'];
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
 </head>
-
 <body class="bg-light">
-
     <!-- Navbar -->
     <?php
     include('ul.php');
-  ?>
+    ?>
     <!-- EndNavbar -->
-
     <div class="container">
         <main>
             <div class="row g-5">
@@ -75,10 +72,8 @@ $level = $_SESSION['userlevel'];
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ระดับ</label>
                                 <input type="text" class="form-control" id="level" name="level" placeholder="กรอกระดับ"
-                                    value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid Job title is required.
-                                </div>
+                                    value="" >
+                                
                             </div>
                             <!-- ตำแหน่งงาน -->
                             <div class="col-sm-6">

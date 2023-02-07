@@ -38,7 +38,7 @@ session_start();
     $remark_mg3 = mysqli_real_escape_string($conn, $_POST['remark_mg3']);
     $manager_name3 = mysqli_real_escape_string($conn, $_POST['manager_name3']);
 
-    $_SESSION['T'] = "T$time_from";
+    // $_SESSION['T'] = "T$time_from";
 
     $_SESSION['fname'] = "$fname";
 	$_SESSION['lname'] = "$lname";
@@ -75,7 +75,6 @@ session_start();
 
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -129,7 +128,7 @@ session_start();
                             </div>
 
                             <!-- ตำแหน่งงาน -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">ตำแหน่ง</label>
                                 <input type="text" class="form-control" id="position" name="position"
                                     placeholder="กรอกตำแหน่งงาน" value="<?php echo $_SESSION['position'] ?>" required="">
@@ -242,62 +241,73 @@ session_start();
                                 <label for="" class="form-label">รวมระยะทาง</label>
                                 <input type="text" class="form-control" id="distance" name="distance"
                                     placeholder="กรอกระยะทาง" value="<?php echo $_SESSION['distance'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ผู้ควบคุมรถยนต์ราชการขณะเดินทาง</label>
                                 <input type="text" class="form-control" id="caretaker" name="caretaker"
                                     placeholder="กรอกชื่อผู้รับผิดชอบ" value="<?php echo $_SESSION['caretaker'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงชื่อคนขอ</label>
                                 <input type="text" class="form-control" id="name_request" name="name_request"
                                     placeholder="กรอกชื่อผู้รับผิดชอบ" value="<?php echo $_SESSION['name_request'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ความเห็นหัวหน้าแผนกงานยานพาหนะ</label>
                                 <input type="text" class="form-control" id="status" name="status"
                                     placeholder="กรอกความเห็น" value="<?php echo $_SESSION['status'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">หมายเหตุ</label>
                                 <input type="text" class="form-control" id="remark" name="remark"
                                     placeholder="กรอกความเห็น" value="<?php echo $_SESSION['remark'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
+                            <?php
+                            $sql    = "SELECT * FROM type WHERE id=$type";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
                             <div class="col-md-6">
                                 <label for="" class="form-label">ประเภทรถ</label>
-                                <input type="text" class="form-control" id="vehicle_id" name="vehicle_id" required=""
+                                <input type="hidden" class="form-control" id="vehicle_id" name="vehicle_id" required=""
                                     value="<?php echo $_SESSION['type'] ?>">
-                                <div class="invalid-feedback">
-                                    Please select a valid country.
-                                </div>
+                                <input type="text" class="form-control" id="show" name="show" required=""
+                                    value="<?php echo $row['type_name'] ?>">
+                              
                             </div>
-
+                            <?php
+                                }}
+                            $sql    = "SELECT * FROM vehicle WHERE vehicle_id=$license_plate";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
                             <div class="col-md-6">
                                 <label for="country" class="form-label">หมายเลขทะเบียนรถ</label>
-                                <input type="text" class="form-control" id="license_plate" name="license_plate" required=""
+                                <input type="hidden" class="form-control" id="license_plate" name="license_plate" required=""
                                     value="<?php echo $_SESSION['license_plate'] ?>">
+                                <input type="text" class="form-control" id="license_name" name="license_name" required=""
+                                    value="<?php echo $row['license_plate'] ?>">    
                             </div>
+<?php
+                                }}
+                                $sql    = "SELECT * FROM user WHERE user_id=$driver_id";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+?>
 
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label for="country" class="form-label">คนขับ</label>
-                                <input type="text" class="form-control" id="driver_id" name="driver_id" required=""
+                                <input type="hidden" class="form-control" id="driver_id" name="driver_id" required=""
                                     value="<?php echo $_SESSION['driver_id'] ?>">
+                                <input type="text" class="form-control" id="show" name="show" required=""
+                                    value="<?php echo $row['fname'] ,'&nbsp', $row['lname']?>">
                             </div>
+                            <?php
+                        }}?>
+
                             <input type="hidden" class="form-control" id="name_request" name="name_request"
                                         placeholder="กรอกข้อมูล" value="<?php echo $_SESSION['fname'] ,'&nbsp', $_SESSION['lname']?>"
                                         required="">
@@ -356,7 +366,7 @@ session_start();
                                 <input type="hidden" class="form-control" id="datetimeTend" name="datetimeTend" placeholder=""
                                     value="<?php echo $_SESSION['date_to'] . $_SESSION['timeEND'] ?>" required="">
                             <hr class="my-4">
-
+                            <button class="w-100 btn btn-success btn-lg" type="submit" name="submit2">สร้างPDF</button>
                             <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit">บันทึก</button>
 
                     </form>

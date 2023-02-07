@@ -51,7 +51,6 @@ session_start();
 
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -86,7 +85,6 @@ session_start();
                     <form class="needs-validation" name="from1" method="post" action="send_orderin.php"
                         enctype="multipart/form-data">
                         <div class="row g-3">
-
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">ชื่อ</label>
                                 <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ"
@@ -192,25 +190,52 @@ session_start();
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $sql    = "SELECT * FROM type WHERE id=$type";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
                             <div class="col-md-6">
                                 <label for="" class="form-label">ประเภทรถ</label>
-                                <input type="text" class="form-control" id="vehicle_id" name="vehicle_id" required=""
+                                <input type="hidden" class="form-control" id="vehicle_id" name="vehicle_id" required=""
                                     value="<?php echo $_SESSION['type'] ?>">
-                                <div class="invalid-feedback">
-                                    Please select a valid country.
-                                </div>
+                                <input type="text" class="form-control" id="show" name="show" required=""
+                                    value="<?php echo $row['type_name'] ?>">
                             </div>
-
+                            <?php
+                                } 
+                            }
+                            $sql    = "SELECT * FROM vehicle WHERE vehicle_id=$license_plate";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                ?>
                             <div class="col-md-6">
                                 <label for="country" class="form-label">หมายเลขทะเบียนรถ</label>
-                                <input type="text" class="form-control" id="license_plate" name="license_plate" required=""
+                                <input type="hidden" class="form-control" id="license_plate" name="license_plate" required=""
                                     value="<?php echo $_SESSION['license_plate'] ?>">
+                                <input type="text" class="form-control" id="license_name" name="license_name" required=""
+                                    value="<?php echo $row['license_plate'] ?>">    
                             </div>
-
+                            <?php
+                                } 
+                            }
+                            $sql    = "SELECT * FROM user WHERE user_id=$driver_id";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>           
                             <div class="col-md-12">
                                 <label for="country" class="form-label">คนขับ</label>
-                                <input type="text" class="form-control" id="driver_id" name="driver_id" required=""
+                                <input type="hidden" class="form-control" id="driver_id" name="driver_id" required=""
                                     value="<?php echo $_SESSION['driver_id'] ?>">
+                                <input type="text" class="form-control" id="show" name="show" required=""
+                                    value="<?php echo $row['fname'] ,'&nbsp', $row['lname']?>">
+                                    <?php
+                                } 
+                            }
+                            ?>
                             </div>
                             <input type="hidden" class="form-control" id="name_request" name="name_request"
                                         placeholder="กรอกข้อมูล" value="<?php echo $_SESSION['fname'] ,'&nbsp', $_SESSION['lname']?>"
@@ -234,7 +259,7 @@ session_start();
                                 <input type="hidden" class="form-control" id="datetimeTend" name="datetimeTend" placeholder=""
                                     value="<?php echo $_SESSION['date_to'] . $_SESSION['timeEND'] ?>" required="">
                             <hr class="my-4">
-
+                            <button class="w-100 btn btn-success btn-lg" type="submit" name="submit2">สร้างPDF</button>
                             <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit">บันทึก</button>
 
                     </form>

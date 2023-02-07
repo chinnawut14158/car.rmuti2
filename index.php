@@ -31,7 +31,7 @@ session_start();
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
   </head>
-  <body class="bg-light" >
+  <body style="background-color:ebebeb" >
 
   <!-- Navbar -->
   <?php
@@ -39,7 +39,7 @@ session_start();
 ?>
   <!-- EndNavbar -->
     
-<div class="container">
+<div class="container" >
 <center><h1>ปฏิทินการเดินรถ</h1></center>
 <div class="row g-5" > 
       <div class="col-md-7 col-lg-12" style="padding:0px 0px 0px 0px;">

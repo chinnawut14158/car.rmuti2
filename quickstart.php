@@ -1,9 +1,9 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+include_once __DIR__ . '/vendor/autoload.php';
 session_start();
 
-$timeST = $_SESSION['timeST'];
-$timeEND = $_SESSION['timeEND'];
+$timeST = $_SESSION['timeGST'];
+$timeEND = $_SESSION['timeGEND'];
 $location = $_SESSION['location'];
 $request_for = $_SESSION['request_for'];
 $in_out = $_SESSION['in_out'];

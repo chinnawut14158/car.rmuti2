@@ -6,7 +6,7 @@ $level = $_SESSION['userlevel'];
     Header("Location:logout.php");  
   }  
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
 <head>
@@ -45,7 +45,10 @@ $level = $_SESSION['userlevel'];
                     <form class="needs-validation" name="from1" method="post" action="save_after.php"
                         enctype="multipart/form-data">
                         <div class="row g-3">
-                        <input type="hidden" class="form-control" id="id" name="id" placeholder="กรอกข้อมูล" value="<?php echo $row['id']; ?>" required="">
+                        <input type="hidden" class="form-control" id="id" name="id" 
+                        placeholder="กรอกข้อมูล" value="<?php echo $row['id']; ?>" required="">
+                        <input type="hidden" class="form-control" id="vehicle_id" name="vehicle_id" 
+                        placeholder="กรอกข้อมูล" value="<?php echo $row['vehicle_id']; ?>" required="">
                         <div class="row g-3">
 
                             <div class="col-sm-6">
@@ -90,10 +93,10 @@ $level = $_SESSION['userlevel'];
                             </div>   
                             <div class="col-sm-12">
                                 <label for="lastName" class="form-label">การเดินทาง</label>
-                                <select class="form-select" id="status" name="status" required="" >
+                                <select class="form-select" id="status_orderID" name="status_orderID" required="" >
                                     <option value="">เลือก...</option>
-                                    <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
-                                    <option value="เดินทางสำเสร็จ">เดินทางสำเสร็จ</option>
+                                    <option value="1">กำลังดำเนินการ</option>
+                                    <option value="2">เดินทางสำเสร็จ</option>
                                 </select>
                             </div>
                             <hr class="my-4">

@@ -1,9 +1,9 @@
 <?php
 
     header('Content-Type: application/json');
-    require_once 'db.php';
-
-    $sqlQuery = "SELECT * FROM student ORDER BY id"; 
+    // require_once 'db.php';
+    require_once 'connect.php';
+    $sqlQuery = "SELECT * FROM events ORDER BY id"; 
 
     // เก็บข้อมูลที่คิวรี่มา
     $result = mysqli_query($conn, $sqlQuery); 

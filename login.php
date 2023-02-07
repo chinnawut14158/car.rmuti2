@@ -56,19 +56,18 @@
   
     <div style="background-color: #FFFFFF; width:450px; border-radius: 24px; padding:10px 16px 20px 16px;" class="mx-auto align-self-center">
     <p align="center"><img src="css\image/RMUTI.png" width="80"></p>
-    <center><h6 style="color:#000000;">ระบบการจองยานพาหนะ</h6></center>
+    <center><h6 style="color:#000000;">ระบบจัดเก็บข้อมูลการขออนุญาตขอใช้รถยนต์ราชการ</h6></center>
     <center><h6 style="color:#000000; ">มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน วิทยาเขตขอนแก่น</h6></center>
-    <center><h6 style="color:#dc3545; ">ใช้ Username และ Password ตัวเดียวกันกับอีเมลมหาวิทยาลัย</h6></center>
+    <center><h6 style="color:#000000; "></h6></center>
+    <!-- <center><h6 style="color:#dc3545; ">ใช้ Username และ Password ตัวเดียวกันกับอีเมลมหาวิทยาลัย</h6></center> -->
     <center><h1 style="color:#000000; font-size:30px; margin-bottom:32px; margin-top:30px;">Login</h1></center>
     <form  name="formlogin" action="checklogin.php" method="POST" id="login" class="form-horizontal">
         <!-- <form> -->
             <input type="text" name="username" placeholder="username@rmuti.ac.th">
             <input type="password" name="password" placeholder="password">
-            <!-- <input type="submit" value="login" > -->
-            <button type="submit" class="btn btn-success" id="btn">
-            <span class="glyphicon glyphicon-log-in"> </span>
-             Login </button>
+            <button class="w-100 btn btn-success btn-lg" type="submit" name="submit2">เข้าสู่ระบบ</button>
         </form>
+        <br><button class="btn btn-warning" onclick="location.href='user_index.php'">ผู้ใช้ทั่วไป</button>
     </div>
     </div>
 

@@ -40,7 +40,7 @@ session_start();
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered table-striped">
                             <thead>
-                                <tr class="bg-primary text-white">
+                            <tr style="background-color:fdc500">
                                     <th>รูป</th>
                                     <th>คำนำหน้า</th>
                                     <th>ชื่อ</th>
@@ -55,7 +55,7 @@ session_start();
                             </thead>
 
                             <!-- ดึงข้อมูลมาจากดาต้าเบส -->
-                            <tbody>
+                            <tbody style="background-color:ffffe0">
                                 <?php
                             // แสดงข้อมูลในตาราง
                             // $sql = "SELECT * FROM admin"; 
@@ -65,7 +65,7 @@ session_start();
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
-                                    echo "<th><img src='img/" . $row['photo'] . "'width=100 height=100' ></th>";
+                                    echo "<th><img src='user_img/" . $row['photo'] . "'width=100 height=100' ></th>";
                                     echo "<th>" . $row['pre'] . "</th>";
                                     echo "<th>" . $row['fname'] . "</th>";
                                     echo "<th>" . $row['lname'] . "</th>";

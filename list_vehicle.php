@@ -22,7 +22,7 @@ $level = $_SESSION['userlevel'];
     <link href="form-validation.css" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body style="background-color:ebebeb">
 
     <!-- Navbar -->
     <?php
@@ -40,7 +40,7 @@ $level = $_SESSION['userlevel'];
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered table-striped">
                             <thead>
-                                <tr class="bg-primary text-white">
+                            <tr style="background-color:fdc500">
                                     <!-- <th></th> -->
                                     <th>รูป</th>
                                     <th>ชนิดรถ</th>
@@ -53,7 +53,7 @@ $level = $_SESSION['userlevel'];
                             </thead>
 
                             <!-- ดึงข้อมูลมาจากดาต้าเบส -->
-                            <tbody>
+                            <tbody style="background-color:ffffe0">
                                 <?php
                             // แสดงข้อมูลในตาราง
                             // $sql = "SELECT * FROM vehicle"; 
@@ -63,7 +63,7 @@ $level = $_SESSION['userlevel'];
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                     // echo "<th>" . $row['vehicle_id'] . "</th>";
-                                    echo "<th><img src='car/" . $row['vehicle_photo'] . "'width=100 height=100' ></th>";
+                                    echo "<th><img src='car/" . $row['vehicle_photo'] . "'width=150 height=150' ></th>";
                                     echo "<th>" . $row['type_name'] . "</th>";
                                     echo "<th>" . $row['vehicle_name'] . "</th>";
                                     echo "<th>" . $row['seat'] . "</th>";

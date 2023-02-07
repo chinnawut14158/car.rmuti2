@@ -6,9 +6,7 @@ $level = $_SESSION['userlevel'];
     Header("Location:logout.php");  
   }  
 ?>
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,12 +25,11 @@ $level = $_SESSION['userlevel'];
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
 </head>
-
 <body class="bg-light">
     <!-- Navbar -->
     <?php
-    include('ul.php');
-  ?>
+    include ('ul.php')
+    ?>
     <!-- EndNavbar -->
     <div class="container">
         <main>
