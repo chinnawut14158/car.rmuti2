@@ -1,14 +1,13 @@
 <?php 
-    // $servername = "localhost";
-    // $username = "root";
-    // $password = "";
-    // $dbname = "projectcalendar";
-
-
     $servername = "localhost";
-    $username = "chin";
-    $password = "Chin1234!";
+    $username = "root";
+    $password = "";
     $dbname = "projectcalendar";
+    
+    // $servername = "localhost";
+    // $username = "chin";
+    // $password = "Chin1234!";
+    // $dbname = "projectcalendar";
 
     // สร้างคำสั่งลัด ให็เป็น $conn
     $conn = mysqli_connect($servername, $username, $password, $dbname);
