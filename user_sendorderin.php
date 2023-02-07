@@ -18,10 +18,16 @@ if (isset($_POST['submit'])) {
 	// echo $fname;
 
 	// Insert into Database events
-	$sql = "INSERT INTO `events` (`id` ,`in_out` ,`in_out_id`,`fname`,`lname`,`position`,`location`,`passenger`,`request_for`,
-						`date_from`,`date_to`,`time_from`,`time_to`,`name_request`,`status` ,`created`) 
-				        VALUES(NULL, 'ภายในอำเภอเมือง','1', '$fname', '$lname', '$position', '$location', '$passenger', '$request_for'
-						,'$date_from','$date_to', '$time_from', '$time_to', '$name_request','1', NOW())";	
+
+	$sql = "INSERT INTO events (in_out, in_out_id, fname, lname, `position`, `level`, request_for, location, passenger, teacher,
+			student,date_from, time_from, date_to, time_to, distance, caretaker, name_request, status, remark, vehicle_id, 
+			driver_id, allowance, remark_mg2, manager_name, manager_date, manager2_name, manager2_date, remark_mg3, 
+			manager3_name, manager3_date, date_out, time_out, sec_out, date_in, time_in, sec_in, mile_st, mile_end, 
+			status_order, status_orderID, created) 
+			VALUES('ภายในอำเภอเมือง','1', '$fname', '$lname', '$position', 0, '$request_for', '$location', '$passenger', 0, 
+			0, '$date_from', '$time_from', '$date_to', '$time_to', 0, 0, '$name_request', '1', 0, 0, 
+			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NOW())";
+
 	mysqli_query($conn, $sql);
 
 	echo "<script> alert('บันทึกสำเร็จกำลังส่งข้อมูลไปยังผู้ดูแลระบบ'); window.location = './user_index.php';</script>";
