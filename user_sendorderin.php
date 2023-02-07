@@ -15,25 +15,25 @@ if (isset($_POST['submit'])) {
 	$time_to = $_POST['time_to'];
 	$name_request = $_POST['name_request'];
 
-	echo $fname;
+	// echo $fname;
 
 	// Insert into Database events
-	// $sql = "INSERT INTO `events` (`id` ,`in_out` ,`in_out_id`,`fname`,`lname`,`position`,`location`,`passenger`,`request_for`,
-	// 					`date_from`,`date_to`,`time_from`,`time_to`,`name_request`,`status` ,`created`) 
-	// 			        VALUES(NULL, 'ภายในอำเภอเมือง','1', '$fname', '$lname', '$position', '$location', '$passenger', '$request_for'
-	// 					,'$date_from','$date_to', '$time_from', '$time_to', '$name_request','1', NOW())";	
-	// mysqli_query($conn, $sql);
+	$sql = "INSERT INTO `events` (`id` ,`in_out` ,`in_out_id`,`fname`,`lname`,`position`,`location`,`passenger`,`request_for`,
+						`date_from`,`date_to`,`time_from`,`time_to`,`name_request`,`status` ,`created`) 
+				        VALUES(NULL, 'ภายในอำเภอเมือง','1', '$fname', '$lname', '$position', '$location', '$passenger', '$request_for'
+						,'$date_from','$date_to', '$time_from', '$time_to', '$name_request','1', NOW())";	
+	mysqli_query($conn, $sql);
 
-	// echo "<script> alert('บันทึกสำเร็จกำลังส่งข้อมูลไปยังผู้ดูแลระบบ'); window.location = './user_index.php';</script>";
-	// echo "<script>";
-    //     echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");"; 
-    //     echo "window.history.back()";
-    // echo "</script>";
+	echo "<script> alert('บันทึกสำเร็จกำลังส่งข้อมูลไปยังผู้ดูแลระบบ'); window.location = './user_index.php';</script>";
+	echo "<script>";
+        echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");"; 
+        echo "window.history.back()";
+    echo "</script>";
 	}else{
-	// echo "<script>";
-    //     echo "alert(\"เกิดข้อผิดพลาด บันทึกไม่สำเร็จ\");"; 
-    //     echo "window.history.back()";
-    // echo "</script>";
+	echo "<script>";
+        echo "alert(\"เกิดข้อผิดพลาด บันทึกไม่สำเร็จ\");"; 
+        echo "window.history.back()";
+    echo "</script>";
 }
 if (isset($_POST['submit2'])) {
 	require_once __DIR__ . '/vendor2/autoload.php';
