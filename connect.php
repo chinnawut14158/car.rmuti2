@@ -1,4 +1,10 @@
 <?php 
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $dbname = "projectcalendar";
+
+
     $servername = "localhost";
     $username = "chin";
     $password = "Chin1234!";
@@ -6,6 +12,7 @@
 
     // สร้างคำสั่งลัด ให็เป็น $conn
     $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // $conn = mysqli_connect("127.0.0.1", "chin", "Chin1234!", "projectcalendar");
 
     // ตรวจสอบการเชื่อมต่อ
     if (!$conn) {
