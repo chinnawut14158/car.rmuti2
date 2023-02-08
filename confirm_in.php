@@ -6,32 +6,23 @@ session_start();
  	if($level!='1'){
     Header("Location:logout.php");  
   }  
-// if (isset($_POST['submit'])) {
-
-	$fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-	$position = mysqli_real_escape_string($conn, $_POST['position']);
-    $location = mysqli_real_escape_string($conn, $_POST['location']);
-	$passenger = mysqli_real_escape_string($conn, $_POST['passenger']);
-    $request_for = mysqli_real_escape_string($conn, $_POST['request_for']);
-	$date_from = mysqli_real_escape_string($conn, $_POST['date_from']);
-    $date_to = mysqli_real_escape_string($conn, $_POST['date_to']);
-    $time_from = mysqli_real_escape_string($conn, $_POST['time_from']);
-    $time_to = mysqli_real_escape_string($conn, $_POST['time_to']);
-
-    $type = mysqli_real_escape_string($conn, $_POST['country']);
-    $license_plate = mysqli_real_escape_string($conn, $_POST['state']);
-
-	// $license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
-    // $vehicle_id = mysqli_real_escape_string($conn, $_POST['vehicle_id']);
-
-	$driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
-    $manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
+	$fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+	$position = $_POST['position'];
+    $location = $_POST['location'];
+	$passenger = $_POST['passenger'];
+    $request_for = $_POST['request_for'];
+	$date_from = $_POST['date_from'];
+    $date_to = $_POST['date_to'];
+    $time_from = $_POST['time_from'];
+    $time_to = $_POST['time_to'];
+    $type = $_POST['country'];
+    $license_plate = $_POST['state'];
+	$driver_id = $_POST['driver_id'];
+    $manager_name = $_POST['manager_name'];
     
     $_SESSION['timeST'] = "T$time_from:00+07:00";
     $_SESSION['timeEND'] = "T$time_to:00+07:00";
-
-    // $_SESSION['B'] = "$date";
     $_SESSION['fname'] = "$fname";
 	$_SESSION['lname'] = "$lname";
     $_SESSION['position'] = "$position";
@@ -42,15 +33,12 @@ session_start();
     $_SESSION['date_to'] = "$date_to";
 	$_SESSION['time_from'] = "$time_from";
     $_SESSION['time_to'] = "$time_to";
-
     $_SESSION['type'] = "$type";
-
     $_SESSION['license_plate'] = "$license_plate";
 	$_SESSION['driver_id'] = "$driver_id";
     $_SESSION['manager_name'] = "$manager_name";
 
 ?>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -59,14 +47,10 @@ session_start();
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
     <title>CarBooking RMUTI</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
     <link href="css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
 </head>
-
 <body class="bg-light">
 
     <!-- Navbar -->
@@ -278,10 +262,5 @@ session_start();
             </ul>
         </footer>
     </div>
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
-    <script src="form-validation.js"></script>
 </body>
-
 </html>
