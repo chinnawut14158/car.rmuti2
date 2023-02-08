@@ -4,71 +4,76 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-	$position = mysqli_real_escape_string($conn, $_POST['position']);
-    $level = mysqli_real_escape_string($conn, $_POST['level']);
-    $request_for = mysqli_real_escape_string($conn, $_POST['request_for']);
-    $location = mysqli_real_escape_string($conn, $_POST['location']);
-	$passenger = mysqli_real_escape_string($conn, $_POST['passenger']);
-    $teacher = mysqli_real_escape_string($conn, $_POST['teacher']);
-    $student = mysqli_real_escape_string($conn, $_POST['student']);
-	$date_from = mysqli_real_escape_string($conn, $_POST['date_from']);
-    $time_from = mysqli_real_escape_string($conn, $_POST['time_from']);
-    $date_to = mysqli_real_escape_string($conn, $_POST['date_to']);
-    $time_to = mysqli_real_escape_string($conn, $_POST['time_to']);
-    $distance = mysqli_real_escape_string($conn, $_POST['distance']);
-    $caretaker = mysqli_real_escape_string($conn, $_POST['caretaker']);
-    $name_request = mysqli_real_escape_string($conn, $_POST['name_request']);
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $position = $_POST['position'];
+    $level = $_POST['level'];
+    $request_for = $_POST['request_for'];
+    $location = $_POST['location'];
+    $passenger = $_POST['passenger'];
+    $teacher = $_POST['teacher'];
+    $student = $_POST['student'];
+    $date_from = $_POST['date_from'];
+    $time_from = $_POST['time_from'];
+    $date_to = $_POST['date_to'];
+    $time_to = $_POST['time_to'];
+    $distance = $_POST['distance'];
+    $caretaker = $_POST['caretaker'];
+    $name_request = $_POST['name_request'];
 
-		// Insert into Database				
-            $sql ="INSERT INTO `events` (`id`, `in_out`,in_out_id, `fname`, `lname`, `position`, `level`, `request_for`, `location`, `passenger`,
-                `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, `caretaker`, `name_request`, `status`,
-                `created`) 
-                VALUES (NULL, 'นอกอำเภอเมือง', '2', '$fname','$lname', '$position', '$level', '$request_for', '$location', '$passenger', '$teacher',
-                '$student', '$date_from', '$time_from', '$date_to', '$time_to', '$distance', '$caretaker', '$name_request','1',
-                NOW())";
+    // Insert into Database
+    $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `fname`, `lname`, `position`, `level`, `request_for`, 
+			`location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
+			`caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
+			`manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
+			`manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
+			`mile_end`, `status_order`, `status_orderID`, `created`) VALUES
+			(NULL, 'นอกอำเภอเมือง', 2, '$fname', '$lname', '$position', $level, '$request_for', 
+			'$location', '$passenger', '$teacher', '$student', '$date_from', '$time_from', '$date_to', '$time_to', '$distance', 
+			'$caretaker', '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
+			NULL, NULL, NULL, NULL, NULL, NULL, 
+			NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
+			NULL, 'ยังไม่เริ่มดำเนินการ', 1, current_timestamp())";
 
-			mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql);
 
-				// echo "<script> alert('บันทึกสำเร็จกำลังส่งข้อมูลไปยังผู้ดูแลระบบ'); window.location = './quickstart.php';</script>";
-            echo "<script>";
-                echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");"; 
-                echo "window.history.back()";
-            echo "</script>";
-			}else{
-			echo "<script>";
-                echo "alert(\"เกิดข้อผิดพลาด บันทึกไม่สำเร็จ\");"; 
-                echo "window.history.back()";
-            echo "</script>";
+    echo "<script>";
+    echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
+    echo "window.history.back()";
+    echo "</script>";
+} else {
+    echo "<script>";
+    echo "alert(\"เกิดข้อผิดพลาด บันทึกไม่สำเร็จ\");";
+    echo "window.history.back()";
+    echo "</script>";
 }
 if (isset($_POST['submit2'])) {
     require_once __DIR__ . '/vendor2/autoload.php';
 
     // รับค่า
-    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-	$position = mysqli_real_escape_string($conn, $_POST['position']);
-    $level = mysqli_real_escape_string($conn, $_POST['level']);
-    $request_for = mysqli_real_escape_string($conn, $_POST['request_for']);
-    $location = mysqli_real_escape_string($conn, $_POST['location']);
-	$passenger = mysqli_real_escape_string($conn, $_POST['passenger']);
-    $teacher = mysqli_real_escape_string($conn, $_POST['teacher']);
-    $student = mysqli_real_escape_string($conn, $_POST['student']);
-	$date_from = mysqli_real_escape_string($conn, $_POST['date_from']);
-    $time_from = mysqli_real_escape_string($conn, $_POST['time_from']);
-    $date_to = mysqli_real_escape_string($conn, $_POST['date_to']);
-    $time_to = mysqli_real_escape_string($conn, $_POST['time_to']);
-    $distance = mysqli_real_escape_string($conn, $_POST['distance']);
-    $caretaker = mysqli_real_escape_string($conn, $_POST['caretaker']);
-    $name_request = mysqli_real_escape_string($conn, $_POST['name_request']);
-    
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $position = $_POST['position'];
+    $level = $_POST['level'];
+    $request_for = $_POST['request_for'];
+    $location = $_POST['location'];
+    $passenger = $_POST['passenger'];
+    $teacher = $_POST['teacher'];
+    $student = $_POST['student'];
+    $date_from = $_POST['date_from'];
+    $time_from = $_POST['time_from'];
+    $date_to = $_POST['date_to'];
+    $time_to = $_POST['time_to'];
+    $distance = $_POST['distance'];
+    $caretaker = $_POST['caretaker'];
+    $name_request = $_POST['name_request'];
+
     $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
     $fontDirs = $defaultConfig['fontDir'];
-    
+
     $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
     $fontData = $defaultFontConfig['fontdata'];
-    
+
     $mpdf = new \Mpdf\Mpdf([
         'fontDir' => array_merge($fontDirs, [
             __DIR__ . '/tmp',
@@ -78,25 +83,19 @@ if (isset($_POST['submit2'])) {
                 'R' => 'THSarabunNew.ttf',
                 'I' => 'THSarabunNew Italic.ttf',
                 'B' => 'THSarabunNew Bold.ttf',
-                'BI'=> 'THSarabunNew BoldItalic.ttf'
+                'BI' => 'THSarabunNew BoldItalic.ttf'
             ]
         ],
         'default_font_size' => 13,
         'default_font' => 'sarabun'
     ]);
-    
+
     ob_start();
-    
+
     // create new PDF instance
     // $mpdf = new \Mpdf\Mpdf();
-    
+
     // create our PDF
-    // $data .= '<img src="img/01.jpg">';
-    // $data .= '<img src="RMUTI_KORAT.png">';
-    // $data .= '<strong>fname</strong>' . $fname . '<br />';
-    // $data .= '<strong>lname</strong>' . $lname . '<br />';
-    // $data .= '<strong>email</strong>' . $email . '<br />';
-    // $data .= '<strong>phone</strong>' . $phone . '<br />';
     $data .= ' <style>
     table {
     border-collapse: collapse;
@@ -132,15 +131,15 @@ if (isset($_POST['submit2'])) {
     <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า...........................' . $fname . '..' . $lname . '...........................ตำแหน่ง..............' . $position . '.................ระดับ...................' . $level . '.................<br>
     มีความประสงค์ ขออนุญาตใช้รถยนต์ราลการ มหาวิทยาลัยเทคโนโลยีอีสาน วิทยาเขตขอนแก่น เพื่อปฏิบัติราชการ 
-    .....................................' .$request_for. '.......................สถานที่......................................' .$location. '................................<br>
-    โดยมีผู้เดินทาง.................' .$passenger. '.................คน  <input type="radio" id="vehicle1" name="vehicle1" value="Bike">
-    <label for="vehicle1">อาจารย์ - เจ้าหน้าที่ .................' .$teacher. '.................คน</label><input type="radio" id="vehicle1" name="vehicle1" value="Bike">
-    <label for="vehicle1">นักศึกษา .................' .$student. '.................คน</label><br>
-    ในวันที่..............' .$date_from. '..............เวลา ..............' .$time_from. '..............น. ถึงวันที่..............' .$date_to. '..............เวลา ..............' .$time_to. '..............น.<br>
-    รวมระยะทาง.................' .$distance. '.................กม. โดยมอบให้...........................' .$caretaker. '...........................เป็นผู้ควบคุมรถยนต์ราชการขณะเดินทาง<br>
+    .....................................' . $request_for . '.......................สถานที่......................................' . $location . '................................<br>
+    โดยมีผู้เดินทาง.................' . $passenger . '.................คน  <input type="radio" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1">อาจารย์ - เจ้าหน้าที่ .................' . $teacher . '.................คน</label><input type="radio" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1">นักศึกษา .................' . $student . '.................คน</label><br>
+    ในวันที่..............' . $date_from . '..............เวลา ..............' . $time_from . '..............น. ถึงวันที่..............' . $date_to . '..............เวลา ..............' . $time_to . '..............น.<br>
+    รวมระยะทาง.................' . $distance . '.................กม. โดยมอบให้...........................' . $caretaker . '...........................เป็นผู้ควบคุมรถยนต์ราชการขณะเดินทาง<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จึงเรียนมาเพื่อโปรดพิจารณา<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ลงชื่อ..................' .$name_request. '....................ผู้ขออนุญาต<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(....................' .$name_request. '....................)<br></p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ลงชื่อ..................' . $name_request . '....................ผู้ขออนุญาต<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(....................' . $name_request . '....................)<br></p>
     <p>ความเห็นหัวหน้าแผนกงานยานพาหนะ<br>
     <input type="radio">ไม่สามารถให้บริการได้ เนื่องจาก ............................................................................<br>
     <input type="radio">พิจารณาแล้ว เห็นควรให้ใช้รถยนต์ราชการ หมายเลขทะเบียน พร้อมพนักงานขับรถ ดังนี้<br>
@@ -162,15 +161,13 @@ if (isset($_POST['submit2'])) {
     ................/.............../................เวลารถเข้า....................................น. ลงชื่อ ...........................................................................(ตัวบรรจง)<br></p>
     <p><b><u>หมายเหตุ</u> ในกรณีออกนอกเส้นทาง วิทยาเขตขอนแก่น จะไม่รับผิดชอบใดๆ ทุกกรณี ผู้ขออนุญาต/ผู้ควบคุมต้องรับผิดชอบเองเท่านั้น </b></p>
     ';
-    
+
     // $data .= '<img src="img/outend.jpg" width="100%" height="73%"/>';
-    
-    
+
+
     //write PDF
     $mpdf->WriteHTML($data);
-    
+
     // output to browser
     $mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายนอกเขตพื้นที่จังหวัดขอนแก่น.pdf', 'D');
 }
-?>
-		
