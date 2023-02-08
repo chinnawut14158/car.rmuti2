@@ -4,42 +4,44 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-    $datetimeTst = mysqli_real_escape_string($conn, $_POST['datetimeTst']);
-    $datetimeTend = mysqli_real_escape_string($conn, $_POST['datetimeTend']);
+    $datetimeTst = $_POST['datetimeTst'];
+    $datetimeTend = $_POST['datetimeTend'];
 
-    $id = mysqli_real_escape_string($conn, $_POST['id']);
-    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-    $position = mysqli_real_escape_string($conn, $_POST['position']);
-    $level = mysqli_real_escape_string($conn, $_POST['level']);
-    $request_for = mysqli_real_escape_string($conn, $_POST['request_for']);
-    $location = mysqli_real_escape_string($conn, $_POST['location']);
-    $passenger = mysqli_real_escape_string($conn, $_POST['passenger']);
-    $teacher = mysqli_real_escape_string($conn, $_POST['teacher']);
-    $student = mysqli_real_escape_string($conn, $_POST['student']);
-    $date_from = mysqli_real_escape_string($conn, $_POST['date_from']);
-    $time_from = mysqli_real_escape_string($conn, $_POST['time_from']);
-    $date_to = mysqli_real_escape_string($conn, $_POST['date_to']);
-    $time_to = mysqli_real_escape_string($conn, $_POST['time_to']);
-    $distance = mysqli_real_escape_string($conn, $_POST['distance']);
-    $caretaker = mysqli_real_escape_string($conn, $_POST['caretaker']);
-    $name_request = mysqli_real_escape_string($conn, $_POST['name_request']);
-    $status = mysqli_real_escape_string($conn, $_POST['status']);
-    $remark = mysqli_real_escape_string($conn, $_POST['remark']);
+    $id = $_POST['id'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $position = $_POST['position'];
+    $level = $_POST['level'];
+    $request_for = $_POST['request_for'];
+    $location = $_POST['location'];
+    $passenger = $_POST['passenger'];
+    $teacher = $_POST['teacher'];
+    $student = $_POST['student'];
+    $date_from = $_POST['date_from'];
+    $time_from = $_POST['time_from'];
+    $date_to = $_POST['date_to'];
+    $time_to = $_POST['time_to'];
+    $distance = $_POST['distance'];
+    $caretaker = $_POST['caretaker'];
+    $name_request = $_POST['name_request'];
+    $status = $_POST['status'];
+    $remark = $_POST['remark'];
 
-    $license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
-    $vehicle_id = mysqli_real_escape_string($conn, $_POST['vehicle_id']);
-    $driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
+    $license_plate = $_POST['license_plate'];
+    $vehicle_id = $_POST['vehicle_id'];
+    $driver_id = $_POST['driver_id'];
 
-    $allowance = mysqli_real_escape_string($conn, $_POST['allowance']);
-    $manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
-    $remark_mg2 = mysqli_real_escape_string($conn, $_POST['remark_mg2']);
-    $manager2_name = mysqli_real_escape_string($conn, $_POST['manager_name2']);
-    $remark_mg3 = mysqli_real_escape_string($conn, $_POST['remark_mg3']);
-    $manager3_name = mysqli_real_escape_string($conn, $_POST['manager_name3']);
+    $allowance = $_POST['allowance'];
+    $manager_name = $_POST['manager_name'];
+    $remark_mg2 = $_POST['remark_mg2'];
+    $manager2_name = $_POST['manager2_name'];
+    $remark_mg3 = $_POST['remark_mg3'];
+    $manager3_name = $_POST['manager3_name'];
+    $manager2_date = $_POST['manager2_date'];
+    $manager3_date = $_POST['manager3_date'];
 
-    $_SESSION['timeST'] = "T$time_from:00+07:00";
-    $_SESSION['timeEND'] = "T$time_to:00+07:00";
+    // $_SESSION['timeST'] = "T$time_from:00+07:00";
+    // $_SESSION['timeEND'] = "T$time_to:00+07:00";
 
     $_SESSION['fname'] = $fname;
     $_SESSION['lname'] = $lname;
@@ -78,61 +80,69 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) == 0) {
         if (mysqli_num_rows($result2) == 0) {
             $sql = "UPDATE events SET fname='$fname', 
-	 lname='$lname',position='$position', location='$location', passenger='$passenger', level='$level',
-	 teacher='$teacher',student='$student',distance='$distance',caretaker='$caretaker', request_for='$request_for', 
-	 date_from='$date_from', date_to='$date_to', time_from='$time_from', time_to='$time_to', name_request='$name_request',
-	 vehicle_id='$vehicle_id', driver_id='$driver_id', manager_name='$manager_name',
-	 remark='$remark', allowance='$allowance', remark_mg2='$remark_mg2',
-	 manager2_name='$manager2_name', manager2_date=now(), remark_mg3='$remark_mg3',
-	 manager3_name='$manager3_name', manager3_date=now(),
-	 manager_date=now(), status='2', status_order='กำลังดำเนินการ'
-	 WHERE events . id = '" . $id . "'";
+                    lname='$lname',position='$position', location='$location', passenger='$passenger', 
+                    level='$level',teacher='$teacher',student='$student',distance='$distance',caretaker='$caretaker', 
+                    request_for='$request_for',date_from='$date_from', date_to='$date_to', time_from='$time_from', 
+                    time_to='$time_to', name_request='$name_request',vehicle_id='$vehicle_id', driver_id='$driver_id', 
+                    manager_name='$manager_name',remark='$remark', allowance='$allowance', remark_mg2='$remark_mg2',
+                    manager2_name='$manager2_name', manager2_date='$manager2_date', remark_mg3='$remark_mg3',
+                    manager3_name='$manager3_name', manager3_date='$manager3_date',manager_date=now(), status='2', 
+                    status_order='กำลังดำเนินการ'
+                    WHERE events . id = '" . $id . "'";
 
             mysqli_query($conn, $sql);
             $query  = $conn->query($sql);
             // Insert into Database	event_google
-            $sql2 = "INSERT INTO event_google
-            (id ,title ,description,location,date_from,date_to,time_from,time_to,datetimeTst,datetimeTend,created) 
-            VALUES(NULL, '$location', '$request_for', '$location', '$date_from', '$date_to', '$time_from', '$time_to',
-            '$datetimeTst','$datetimeTend',NOW())";
+            $sql2 = "INSERT INTO `event_google` (`id`, `title`, `description`, `location`, `date_from`, `date_to`,
+                    `time_from`, `time_to`, `datetimeTst`, `datetimeTend`, `created`) VALUES 
+                    (NULL, '$location', '$request_for', '$location', '$date_from', '$date_to', 
+                    '$time_from', '$time_to', '$datetimeTst', '$datetimeTend', current_timestamp())";
 
             mysqli_query($conn, $sql2);
 
             echo "<script> alert('กำลังส่งข้อมูลไปยัง ปฏิทิน'); window.location = './quickstart.php';</script>";
         } else {
-            echo "<script> alert('คนขับซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_out.php';</script>";
+            echo "<script>";
+			echo "alert(\"คนขับซ้ำ บันทึกไม่สำเร็จ\");";
+			echo "window.history.back()";
+			echo "</script>";
         }
     } else {
-        echo "<script> alert('รถซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_out.php';</script>";
+        echo "<script>";
+        echo "alert(\"รถซ้ำ บันทึกไม่สำเร็จ\");";
+        echo "window.history.back()";
+        echo "</script>";
     }
 }
 if (isset($_POST['submit2'])) {
     require_once __DIR__ . '/vendor2/autoload.php';
 
     // รับค่า
-    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-    $position = mysqli_real_escape_string($conn, $_POST['position']);
-    $level = mysqli_real_escape_string($conn, $_POST['level']);
-    $request_for = mysqli_real_escape_string($conn, $_POST['request_for']);
-    $location = mysqli_real_escape_string($conn, $_POST['location']);
-    $passenger = mysqli_real_escape_string($conn, $_POST['passenger']);
-    $teacher = mysqli_real_escape_string($conn, $_POST['teacher']);
-    $student = mysqli_real_escape_string($conn, $_POST['student']);
-    $date_from = mysqli_real_escape_string($conn, $_POST['date_from']);
-    $time_from = mysqli_real_escape_string($conn, $_POST['time_from']);
-    $date_to = mysqli_real_escape_string($conn, $_POST['date_to']);
-    $time_to = mysqli_real_escape_string($conn, $_POST['time_to']);
-    $distance = mysqli_real_escape_string($conn, $_POST['distance']);
-    $caretaker = mysqli_real_escape_string($conn, $_POST['caretaker']);
-    $name_request = mysqli_real_escape_string($conn, $_POST['name_request']);
-    $manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
-    $allowance = mysqli_real_escape_string($conn, $_POST['allowance']);
-    $manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
-    $remark_mg2 = mysqli_real_escape_string($conn, $_POST['remark_mg2']);
-    $manager_name2 = mysqli_real_escape_string($conn, $_POST['manager_name2']);
-    $remark_mg3 = mysqli_real_escape_string($conn, $_POST['remark_mg3']);
-    $manager_name3 = mysqli_real_escape_string($conn, $_POST['manager_name3']);
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $position = $_POST['position'];
+    $level = $_POST['level'];
+    $request_for = $_POST['request_for'];
+    $location = $_POST['location'];
+    $passenger = $_POST['passenger'];
+    $teacher = $_POST['teacher'];
+    $student = $_POST['student'];
+    $date_from = $_POST['date_from'];
+    $time_from = $_POST['time_from'];
+    $date_to = $_POST['date_to'];
+    $time_to = $_POST['time_to'];
+    $distance = $_POST['distance'];
+    $caretaker = $_POST['caretaker'];
+    $name_request = $_POST['name_request'];
+    $manager_name = $_POST['manager_name'];
+    $allowance = $_POST['allowance'];
+    $manager_name = $_POST['manager_name'];
+    $remark_mg2 = $_POST['remark_mg2'];
+    $manager2_name = $_POST['manager2_name'];
+    $remark_mg3 = $_POST['remark_mg3'];
+    $manager3_name = $_POST['manager3_name'];
+    $manager2_date = $_POST['manager2_date'];
+    $manager3_date = $_POST['manager3_date'];
 
 
     $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
@@ -163,12 +173,6 @@ if (isset($_POST['submit2'])) {
     // $mpdf = new \Mpdf\Mpdf();
 
     // create our PDF
-    // $data .= '<img src="img/01.jpg">';
-    // $data .= '<img src="RMUTI_KORAT.png">';
-    // $data .= '<strong>fname</strong>' . $fname . '<br />';
-    // $data .= '<strong>lname</strong>' . $lname . '<br />';
-    // $data .= '<strong>email</strong>' . $email . '<br />';
-    // $data .= '<strong>phone</strong>' . $phone . '<br />';
     $data .= ' <style>
         table {
         border-collapse: collapse;
@@ -225,7 +229,7 @@ if (isset($_POST['submit2'])) {
         ................/.............../................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
         <b>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b></p>
         <p style="text-align:center">ความเห็น.........' . $remark_mg2 . '.........&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ความเห็น.........' . $remark_mg3 . '.........<br>
-        ลงชื่อ.............' . $manager_name2 . '...........&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ลงชื่อ...............' . $manager_name2 . '...................<br>
+        ลงชื่อ.............' . $manager2_name . '...........&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ลงชื่อ...............' . $manager3_name . '...................<br>
         ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;รองอธิการบดีประจำวิทยาเขตขอนแก่น<br>
         ................/.............../................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;................/.............../................<br>
         <b>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b><br>

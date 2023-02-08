@@ -21,8 +21,8 @@ session_start();
 	$driver_id = $_POST['driver_id'];
     $manager_name = $_POST['manager_name'];
     
-    $_SESSION['timeST'] = "T$time_from:00+07:00";
-    $_SESSION['timeEND'] = "T$time_to:00+07:00";
+    $_SESSION['timeST'] = "T$time_from+07:00";
+    $_SESSION['timeEND'] = "T$time_to+07:00";
     $_SESSION['fname'] = "$fname";
 	$_SESSION['lname'] = "$lname";
     $_SESSION['position'] = "$position";

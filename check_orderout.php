@@ -15,15 +15,10 @@ $level = $_SESSION['userlevel'];
     <meta name="generator" content="Hugo 0.101.0">
     <title>CarBooking RMUTI</title>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
     <link href="css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
 </head>
 <body class="bg-light">
     <!-- Navbar -->
@@ -285,36 +280,47 @@ $level = $_SESSION['userlevel'];
                                     Valid is required.
                                 </div>
                             </div>
-                            <!-- ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น -->
+                            <hr class="my-4">
+                            <!-- ความเห็นผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น -->
                             <div class="col-sm-6">
-                                <label for="" class="form-label">ความเห็น</label>
-                                <input type="text" class="form-control" id="remark_mg2" name="remark_mg2"
-                                    placeholder="กรอกความเห็น" value="" required="">
+                                <label for="" class="form-label">ความเห็นอำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                <input type="text" class="form-control" id="remark_mg2" name="remark_mg2" placeholder="กรอกความเห็น" value="" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <!-- ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น -->
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                <input type="text" class="form-control" id="remark_mg3" name="remark_mg3" placeholder="กรอกความเห็น" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงชื่อผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
-                                <input type="text" class="form-control" id="manager_name2" name="manager_name2"
-                                    placeholder="ลงชื่อ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
-                            </div>
-                            <!-- รองอธิการบดีประจำวิทยาเขตขอนแก่น -->
-                            <div class="col-sm-6">
-                                <label for="" class="form-label">ความเห็น</label>
-                                <input type="text" class="form-control" id="remark_mg3" name="remark_mg3"
-                                    placeholder="กรอกความเห็น" value="" required="">
+                                <input type="text" class="form-control" id="manager2_name" name="manager2_name" placeholder="ลงชื่อ" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงชื่อรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
-                                <input type="text" class="form-control" id="manager_name3" name="manager_name3"
-                                    placeholder="ลงชื่อ" value="" required="">
+                                <input type="text" class="form-control" id="manager3_name" name="manager3_name" placeholder="ลงชื่อ" value="" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ลงวันที่ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                <input type="date" class="form-control" id="manager2_date" name="manager2_date" placeholder="ลงชื่อ" value="" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ลงวันที่รองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                <input type="date" class="form-control" id="manager3_date" name="manager3_date" placeholder="ลงชื่อ" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
@@ -365,15 +371,5 @@ $level = $_SESSION['userlevel'];
             </ul>
         </footer>
     </div>
-
-
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
-
-    <script src="form-validation.js"></script>
-
-
 </body>
-
 </html>

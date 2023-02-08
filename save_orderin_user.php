@@ -1,43 +1,28 @@
 <?php
+	include("connect.php");
 session_start();
 if (isset($_POST['submit'])) {
-	include("connect.php");
 
-	$errors = array();
-
-	$datetimeTst = mysqli_real_escape_string($conn, $_POST['datetimeTst']);
-	$datetimeTend = mysqli_real_escape_string($conn, $_POST['datetimeTend']);
-
-	$fname = mysqli_real_escape_string($conn, $_POST['fname']);
-	$lname = mysqli_real_escape_string($conn, $_POST['lname']);
-	$position = mysqli_real_escape_string($conn, $_POST['position']);
-	$location = mysqli_real_escape_string($conn, $_POST['location']);
-	$passenger = mysqli_real_escape_string($conn, $_POST['passenger']);
-	$request_for = mysqli_real_escape_string($conn, $_POST['request_for']);
-	$date_from = mysqli_real_escape_string($conn, $_POST['date_from']);
-	$date_to = mysqli_real_escape_string($conn, $_POST['date_to']);
-	$time_from = mysqli_real_escape_string($conn, $_POST['time_from']);
-	$time_to = mysqli_real_escape_string($conn, $_POST['time_to']);
-	$license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
-	$vehicle_id = mysqli_real_escape_string($conn, $_POST['vehicle_id']);
-	$driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
-	$manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
-	$name_request = mysqli_real_escape_string($conn, $_POST['name_request']);
-
-    // $type = mysqli_real_escape_string($conn, $_POST['country']);
-    // $license_plate = mysqli_real_escape_string($conn, $_POST['state']);
-
-	// $license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
-    // $vehicle_id = mysqli_real_escape_string($conn, $_POST['vehicle_id']);
-
-	$driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
-    $manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
-    
-    $_SESSION['timeST'] = "T$time_from:00+07:00";
-    $_SESSION['timeEND'] = "T$time_to:00+07:00";
-
-    // $_SESSION['type'] = "$type";
 	$id = $_POST['id'];
+	$datetimeTst = $_POST['datetimeTst'];
+	$datetimeTend = $_POST['datetimeTend'];
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$position = $_POST['position'];
+	$location = $_POST['location'];
+	$passenger = $_POST['passenger'];
+	$request_for = $_POST['request_for'];
+	$date_from = $_POST['date_from'];
+	$date_to = $_POST['date_to'];
+	$time_from = $_POST['time_from'];
+	$time_to = $_POST['time_to'];
+	$license_plate = $_POST['license_plate'];
+	$vehicle_id = $_POST['vehicle_id'];
+	$driver_id = $_POST['driver_id'];
+	$manager_name = $_POST['manager_name'];
+	$name_request = $_POST['name_request'];
+    $manager_name = $_POST['manager_name'];
+    
     $_SESSION['license_plate'] = "$license_plate";
 	$_SESSION['driver_id'] = "$driver_id";
     $_SESSION['manager_name'] = "$manager_name";
@@ -50,14 +35,10 @@ if (isset($_POST['submit'])) {
 	$_SESSION['request_for'] = $request_for;
 	$_SESSION['location'] = $location;
 	$_SESSION['driver_id'] = $driver_id;
-	$_SESSION['head'] = 'ภายในอำเภอเมือง';
 	$_SESSION['timeGST'] = $datetimeTst;
 	$_SESSION['timeGEND'] = $datetimeTend;
-
 	$_SESSION['in_out'] = 'จองภายในอำเภอเมือง';
 
-	echo $_SESSION['timeGST'];
-	echo $_SESSION['timeGEND'];
 	$sqlemail = "SELECT * FROM user WHERE user_id = $driver_id";
 	$resultemail = mysqli_query($conn, $sqlemail);
 	 if (mysqli_num_rows($resultemail) == 1); {
@@ -81,12 +62,12 @@ if (isset($_POST['submit'])) {
 	if(mysqli_num_rows($result)==0){
         if(mysqli_num_rows($result2)==0){
 	$sql = "UPDATE events SET fname='$fname', 
-		lname='$lname',position='$position', location='$location', passenger='$passenger', 
-		request_for='$request_for', date_from='$date_from', date_to='$date_to',
-		time_from='$time_from', time_to='$time_to', name_request='$name_request',
-		vehicle_id='$vehicle_id', driver_id='$driver_id', manager_name='$manager_name',
-		manager_date=now(), status='2', status_order='กำลังดำเนินการ'
-        WHERE events . id = '" . $id . "'";
+			lname='$lname',position='$position', location='$location', passenger='$passenger', 
+			request_for='$request_for', date_from='$date_from', date_to='$date_to',
+			time_from='$time_from', time_to='$time_to', name_request='$name_request',
+			vehicle_id='$vehicle_id', driver_id='$driver_id', manager_name='$manager_name',
+			manager_date=now(), status='2', status_order='กำลังดำเนินการ'
+			WHERE events . id = '" . $id . "'";
 
 		mysqli_query($conn, $sql);
 		$query  = $conn->query($sql);
@@ -98,33 +79,39 @@ if (isset($_POST['submit'])) {
 
 		echo "<script> alert('กำลังส่งข้อมูลไปยัง ปฏิทิน'); window.location = './quickstart.php';</script>";
 	}else{
-		echo "<script> alert('คนขับซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_in.php';</script>";
+		echo "<script>";
+			echo "alert(\"คนขับซ้ำ บันทึกไม่สำเร็จ\");";
+			echo "window.history.back()";
+			echo "</script>";
 	}
 	} else {
-		echo "<script> alert('รถซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_in.php';</script>";
+		echo "<script>";
+			echo "alert(\"รถซ้ำ บันทึกไม่สำเร็จ\");";
+			echo "window.history.back()";
+			echo "</script>";
 	}
 }
 if (isset($_POST['submit2'])) {
 	require_once __DIR__ . '/vendor2/autoload.php';
 	include("connect.php");
 
-	$fname = mysqli_real_escape_string($conn, $_POST['fname']);
-	$lname = mysqli_real_escape_string($conn, $_POST['lname']);
-	$position = mysqli_real_escape_string($conn, $_POST['position']);
-	$location = mysqli_real_escape_string($conn, $_POST['location']);
-	$passenger = mysqli_real_escape_string($conn, $_POST['passenger']);
-	$request_for = mysqli_real_escape_string($conn, $_POST['request_for']);
-	$date_from = mysqli_real_escape_string($conn, $_POST['date_from']);
-	$date_to = mysqli_real_escape_string($conn, $_POST['date_to']);
-	$time_from = mysqli_real_escape_string($conn, $_POST['time_from']);
-	$time_to = mysqli_real_escape_string($conn, $_POST['time_to']);
-	$license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
-	$license_name = mysqli_real_escape_string($conn, $_POST['license_name']);
-	$vehicle_id = mysqli_real_escape_string($conn, $_POST['vehicle_id']);
-	$driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
-	$driver_name = mysqli_real_escape_string($conn, $_POST['driver_name']);
-	$manager_name = mysqli_real_escape_string($conn, $_POST['manager_name']);
-	$name_request = mysqli_real_escape_string($conn, $_POST['name_request']);
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$position = $_POST['position'];
+	$location = $_POST['location'];
+	$passenger = $_POST['passenger'];
+	$request_for = $_POST['request_for'];
+	$date_from = $_POST['date_from'];
+	$date_to = $_POST['date_to'];
+	$time_from = $_POST['time_from'];
+	$time_to = $_POST['time_to'];
+	$license_plate = $_POST['license_plate'];
+	$license_name = $_POST['license_name'];
+	$vehicle_id = $_POST['vehicle_id'];
+	$driver_id = $_POST['driver_id'];
+	$driver_name = $_POST['driver_name'];
+	$manager_name = $_POST['manager_name'];
+	$name_request = $_POST['name_request'];
 
 	$defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 	$fontDirs = $defaultConfig['fontDir'];

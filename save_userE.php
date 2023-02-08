@@ -73,14 +73,14 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
     //     echo "<script>alert('เพิ่มข้อมูลไม่สำเร็จ2'); window.location = './add_vehicle.php';</script>"; 
     // }
 	else{
-				$type_id = mysqli_real_escape_string($conn, $_POST['type_id']);
-                $vehicle_name = mysqli_real_escape_string($conn, $_POST['vehicle_name']);
-                $seat = mysqli_real_escape_string($conn, $_POST['seat']);
-				$license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
+				// $type_id = mysqli_real_escape_string($conn, $_POST['type_id']);
+                // $vehicle_name = mysqli_real_escape_string($conn, $_POST['vehicle_name']);
+                // $seat = mysqli_real_escape_string($conn, $_POST['seat']);
+				// $license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
 
 				$errors = array();
 
-				$vehicle_id = $_POST['vehicle_id'];
+				// $vehicle_id = $_POST['vehicle_id'];
 				$new_img_name = $_POST['image'];
 				// $vehicle_name = $_POST['vehicle_name'];
 				// $seat = $_POST['seat'];

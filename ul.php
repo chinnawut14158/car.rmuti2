@@ -23,7 +23,7 @@
           <li><a href="list_vehicle.php" class="nav-link px-2 link-light">ยานพาหนะ</a></li>
           <li><a href="list_user.php" class="nav-link px-2 link-light">บุคลากร</a></li>
           <li><a href="report.php" class="nav-link px-2 link-light">รายงาน</a></li>
-          <li><a href="" class="nav-link px-2 link-light">คู่มือการใช้งาน</a></li>
+          <li><a href="manual.php" class="nav-link px-2 link-light">คู่มือการใช้งาน</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">ตั้งค่า</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown04">

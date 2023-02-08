@@ -25,13 +25,9 @@ session_start();
 	<link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 	<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 	<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-	<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
 	<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
 	<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
 	<meta name="theme-color" content="#712cf9">
-
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
 </head>
 <body style="background-color:ebebeb" >
 
@@ -109,12 +105,6 @@ session_start();
 			</div>
 		</div>
 </div>
-
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
-      <script src="form-validation.js"></script>
-  
-
 </body>
 </html>
 <script src="js/chart.js"></script>

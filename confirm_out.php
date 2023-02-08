@@ -71,8 +71,8 @@ $_SESSION['manager3_name'] = "$manager3_name";
 $_SESSION['manager2_date'] = "$manager2_date";
 $_SESSION['manager3_date'] = "$manager3_date";
 
-$_SESSION['timeST'] = "T$time_from:00+07:00";
-$_SESSION['timeEND'] = "T$time_to:00+07:00";
+$_SESSION['timeST'] = "T$time_from+07:00";
+$_SESSION['timeEND'] = "T$time_to+07:00";
 
 ?>
 

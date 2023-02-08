@@ -16,15 +16,10 @@ if ($level != '1') {
   <meta name="generator" content="Hugo 0.101.0">
   <title>CarBooking RMUTI</title>
 
-  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/"> -->
-  <!-- <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
-  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>  
-  <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>  
-
-  <!-- Custom styles for this template -->
-  <link href="form-validation.css" rel="stylesheet">
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 </head>
 
 <body style="background-color:ebebeb">
@@ -94,8 +89,8 @@ if ($level != '1') {
               </tbody>
             </table>
             <center>
-            <h1>รายการจอง(ภายนอกเขตอำเภอเมือง)</h1>
-          </center>
+              <h1>รายการจอง(ภายนอกเขตอำเภอเมือง)</h1>
+            </center>
             <table class="table table-hover table-bordered table-striped" id="request_out_data">
               <thead>
                 <tr style="background-color:fdc500">
@@ -159,23 +154,15 @@ if ($level != '1') {
     </ul>
   </footer>
   </div>
-
-
-  <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
-  <script src="form-validation.js"></script>
-
-
 </body>
-
 </html>
-<script>  
- $(document).ready(function(){  
-      $('#request_in_data').DataTable();  
- });  
- </script>  
- <script>  
- $(document).ready(function(){  
-      $('#request_out_data').DataTable();  
- });  
- </script>  
+<script>
+  $(document).ready(function() {
+    $('#request_in_data').DataTable();
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    $('#request_out_data').DataTable();
+  });
+</script>

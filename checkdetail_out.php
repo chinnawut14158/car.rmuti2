@@ -16,14 +16,9 @@ if ($level != '1') {
     <meta name="generator" content="Hugo 0.101.0">
     <title>CarBooking RMUTI</title>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
     <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -179,25 +174,27 @@ if ($level != '1') {
                                             <label for="" class="form-label">หมายเหตุ</label>
                                             <input type="text" class="form-control" id="remark" name="remark" placeholder="กรอกความเห็น" value="<?php echo $row['remark']; ?>" required="">
                                         </div>
-                                        <?php
-                                    }}
-                                        $sql    = "SELECT * FROM type WHERE id=$type";
-                                        $result = $conn->query($sql);
-                                        if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                            ?>
+                                    <?php
+                                    }
+                                }
+                                $sql    = "SELECT * FROM type WHERE id=$type";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                    ?>
                                         <div class="col-md-6">
                                             <label for="country" class="form-label">ประเภทรถ</label>
                                             <input type="text" class="form-control" id="type_name" name="type_name" placeholder="" value="<?php echo $row['type_name']; ?>" required="">
                                         </div>
-                                        <?php
-                                        }}
-                                        $sql    = "SELECT * FROM events WHERE id=$idm";
-                                        $result = $conn->query($sql);
-                                        if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
+                                    <?php
+                                    }
+                                }
+                                $sql    = "SELECT * FROM events WHERE id=$idm";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
 
-                                        ?>
+                                    ?>
                                         <div class="col-md-6">
                                             <label for="pwd" class="form-label">ทะเบียน</label>
                                             <input type="text" class="form-control" id="vehicle_id" name="vehicle_id" placeholder="" value="<?php echo $row['vehicle_id']; ?>" required="">
@@ -214,30 +211,55 @@ if ($level != '1') {
                                             <label for="" class="form-label">ลงชื่อหัวหน้าแผนกงาน</label>
                                             <input type="text" class="form-control" id="manager_name" name="manager_name" placeholder="ลงชื่อ" value="<?php echo $row['manager_name']; ?>" required="">
                                         </div>
-                                        <!-- ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น -->
-                                        <div class="col-sm-6">
-                                            <label for="" class="form-label">ความเห็น</label>
-                                            <input type="text" class="form-control" id="remark_mg2" name="remark_mg2" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg2']; ?>" required="">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <label for="" class="form-label">ลงชื่อผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
-                                            <input type="text" class="form-control" id="manager_name2" name="manager_name2" placeholder="ลงชื่อ" value="<?php echo $row['manager2_name']; ?>" required="">
-                                        </div>
-                                        <!-- รองอธิการบดีประจำวิทยาเขตขอนแก่น -->
-                                        <div class="col-sm-6">
-                                            <label for="" class="form-label">ความเห็น</label>
-                                            <input type="text" class="form-control" id="remark_mg3" name="remark_mg3" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg3']; ?>" required="">
-                                            <div class="invalid-feedback">
-                                                Valid is required.
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <label for="" class="form-label">ลงชื่อรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
-                                            <input type="text" class="form-control" id="manager_name3" name="manager_name3" placeholder="ลงชื่อ" value="<?php echo $row['manager3_name']; ?>" required="">
-                                        </div>
+                                        <hr class="my-4">
+                            <!-- ความเห็นผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น -->
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ความเห็นอำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                <input type="text" class="form-control" id="remark_mg2" name="remark_mg2" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg2'] ?>" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <!-- ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น -->
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                <input type="text" class="form-control" id="remark_mg3" name="remark_mg3" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg3'] ?>" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ลงชื่อผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                <input type="text" class="form-control" id="manager2_name" name="manager2_name" placeholder="ลงชื่อ" value="<?php echo $row['manager2_name'] ?>" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ลงชื่อรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                <input type="text" class="form-control" id="manager3_name" name="manager3_name" placeholder="ลงชื่อ" value="<?php echo $row['manager3_name'] ?>" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ลงวันที่ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                <input type="date" class="form-control" id="manager2_date" name="manager2_date" placeholder="ลงชื่อ" value="<?php echo $row['manager2_date'] ?>" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="" class="form-label">ลงวันที่รองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                <input type="date" class="form-control" id="manager3_date" name="manager3_date" placeholder="ลงชื่อ" value="<?php echo $row['manager3_date'] ?>" required="">
+                                <div class="invalid-feedback">
+                                    Valid is required.
+                                </div>
+                            </div>
                             <?php
                                     }
-                                }}
+                                }
+                            }
                             ?>
                             <hr class="my-4">
                             <!-- <button class="w-100 btn btn-success btn-lg" type="submit">บันทึก</button> -->
@@ -256,14 +278,6 @@ if ($level != '1') {
             </ul>
         </footer>
     </div>
-
-
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
-
-    <script src="form-validation.js"></script>
-
-
 </body>
 
 </html>
