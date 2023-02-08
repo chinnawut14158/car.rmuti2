@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 			`manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
 			`manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
 			`mile_end`, `status_order`, `status_orderID`, `created`) VALUES
-			(NULL, 'นอกอำเภอเมือง', 2, '$fname', '$lname', '$position', $level, '$request_for', 
+			(NULL, 'นอกอำเภอเมือง', 2, '$fname', '$lname', '$position', '$level', '$request_for', 
 			'$location', '$passenger', '$teacher', '$student', '$date_from', '$time_from', '$date_to', '$time_to', '$distance', 
 			'$caretaker', '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
 			NULL, NULL, NULL, NULL, NULL, NULL, 
