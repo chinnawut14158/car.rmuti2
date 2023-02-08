@@ -24,8 +24,8 @@ session_start();
   include('user_ul.php');
   ?>
   <!-- EndNavbar -->
-  <button class="w-10 btn btn-success btn-lg" onclick="location.href='download.php?file=ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf'">ดาวน์โหลดแบบฟอร์ม(ภายในเขตอำเภอเมือง)</button>
-  <button class="w-10 btn btn-success btn-lg" onclick="location.href='download.php?file=ใบขออนุญาตใช้รถยนต์ราชการภายนอกเขตพื้นที่จังหวัดขอนแก่น.pdf'">ดาวน์โหลดแบบฟอร์ม(นอกเขตอำเภอเมือง)</button>
+  <button class="w-10 btn btn-success btn-lg" onclick="location.href='download.php?file=formin.pdf'">ดาวน์โหลดแบบฟอร์ม(ภายในเขตอำเภอเมือง)</button>
+  <button class="w-10 btn btn-success btn-lg" onclick="location.href='download.php?file=formout.pdf'">ดาวน์โหลดแบบฟอร์ม(นอกเขตอำเภอเมือง)</button>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
     <p class="mb-1">© 2017–2022 Company Name</p>
@@ -37,4 +37,5 @@ session_start();
   </footer>
   </div>
 </body>
+
 </html>
