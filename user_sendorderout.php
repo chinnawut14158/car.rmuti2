@@ -43,6 +43,7 @@ if (isset($_POST['submit'])) {
     echo "</script>";
 }
 if (isset($_POST['submit2'])) {
+    
     require_once __DIR__ . '/vendor2/autoload.php';
 
     // รับค่า

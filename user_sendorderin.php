@@ -38,7 +38,8 @@ if (isset($_POST['submit'])) {
 	echo "window.history.back()";
 	echo "</script>";
 }
-if (isset($_POST['submit2'])) {
+else if (isset($_POST['submit2'])) {
+	
 	require_once __DIR__ . '/vendor2/autoload.php';
 	$fname =  $_POST['fname'];
 	$lname =  $_POST['lname'];
