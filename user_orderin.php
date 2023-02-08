@@ -118,13 +118,6 @@ session_start();
                                 <input type="text" class="form-control" id="name_request" name="name_request"
                                     placeholder="กรอกชื่อ-นามสกุล" value="" required="">
                             </div>
-                            <!-- <div class="col-6">
-                                <label for="username" class="form-label">ลงวันที่(วันที่ยื่นคำขอ)</label>
-                                <div class="input-group has-validation">
-                                    <input type="date" class="form-control" id="date_from" name="date_from" placeholder=""
-                                        required="">
-                                </div>
-                            </div> -->
                             <center>
 
                             </center>
