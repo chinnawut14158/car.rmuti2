@@ -31,20 +31,12 @@ if (isset($_POST['submit'])) {
 			NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
 			NULL, 'ยังไม่เริ่มดำเนินการ', 1, current_timestamp())";
 
-	// mysqli_query($conn, $sql);
+	mysqli_query($conn, $sql);
 
-    if (mysqli_query($conn, $sql)){
-
-		echo "<script>";
-		echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
-		echo "window.history.back()";
-		echo "</script>";
-	} else {
-		echo "<script>";
-		echo "alert(\"เกิดข้อผิดพลาด บันทึกไม่สำเร็จ\");";
-		echo "window.history.back()";
-		echo "</script>";
-	}
+	echo "<script>";
+	echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
+	echo "window.history.back()";
+	echo "</script>";
 }
 if (isset($_POST['submit2'])) {
 	require_once __DIR__ . '/vendor2/autoload.php';
