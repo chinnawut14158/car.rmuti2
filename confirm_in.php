@@ -214,7 +214,7 @@ session_start();
                                 <label for="country" class="form-label">คนขับ</label>
                                 <input type="hidden" class="form-control" id="driver_id" name="driver_id" required=""
                                     value="<?php echo $_SESSION['driver_id'] ?>">
-                                <input type="text" class="form-control" id="show" name="show" required=""
+                                <input type="text" class="form-control" id="driver_name" name="driver_name" required=""
                                     value="<?php echo $row['fname'] ,'&nbsp', $row['lname']?>">
                                     <?php
                                 } 
