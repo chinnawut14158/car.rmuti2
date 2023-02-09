@@ -32,13 +32,12 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 				$license_plate = mysqli_real_escape_string($conn, $_POST['license_plate']);
 
                 // Insert into Database
-                $sql = "INSERT INTO vehicle (vehicle_id ,type_id ,vehicle_name ,seat ,license_plate ,vehicle_photo) 
-                        VALUES(NULL, '$type_id', '$vehicle_name', '$seat','$license_plate','$new_img_name')";
+                $sql = "INSERT INTO vehicle (vehicle_id ,type_id ,vehicle_name ,seat ,license_plate, mile ,vehicle_photo) 
+                        VALUES(NULL, '$type_id', '$vehicle_name', '$seat','$license_plate',0,'$new_img_name')";
 
                 mysqli_query($conn, $sql);
 
                 echo "<script>alert('เพิ่มข้อมูลรถแล้ว'); window.location = './list_vehicle.php';</script>"; 
-                // header("Location: vehicle.php");
             }else {
                 echo "<script>alert('เพิ่มข้อมูลไม่สำเร็จ'); window.location = './add_vehicle.php';</script>"; 
             }

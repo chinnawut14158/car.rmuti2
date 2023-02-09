@@ -60,13 +60,13 @@ session_start();
                                     <div class="row g-3">
                                         <div class="col-sm-12">
                                             <label for="" class="form-label">หมายเลขทะเบียนรถ</label>
-                                            <input type="text" class="form-control" id=""
+                                            <input type="text" class="form-control" id="license_plate"
                                                 placeholder="กรอกหมายเลขทะเบียนรถ" value="" required="" name="license_plate">
                                         </div>
                                         <div class="row g-3">
                                             <div class="col-sm-12">
                                                 <label for="" class="form-label">จำนวนที่นั่ง</label>
-                                                <input type="text" class="form-control" id=""
+                                                <input type="text" class="form-control" id="seat"
                                                     placeholder="กรอกจำนวนที่นั่ง" value="" required="" name="seat">
                                             </div>
                                             <div class="row g-3">
