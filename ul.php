@@ -28,8 +28,8 @@
             <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">ตั้งค่า</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown04">
               <li><a class="dropdown-item" href="setting_line.php">ตั้งค่าการแจ้งเตือนผ่านไลน์</a></li>
-              <li><a class="dropdown-item" href="add_vehicle.php">เพิ่มข้อมูลรถ</a></li>
-              <li><a class="dropdown-item" href="add_user.php">ข้อมูลบุคลากรและจัดกลุ่มผู้ใช้</a></li> 
+              <!-- <li><a class="dropdown-item" href="add_vehicle.php">เพิ่มข้อมูลรถ</a></li>
+              <li><a class="dropdown-item" href="add_user.php">ข้อมูลบุคลากรและจัดกลุ่มผู้ใช้</a></li>  -->
             </ul>
           </li>
         </ul>
