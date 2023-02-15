@@ -126,6 +126,11 @@ session_start();
                                 <label for="" class="form-label">ลงชื่อผู้ขออนุญาต</label>
                                 <input type="text" class="form-control" id="name_request" name="name_request" placeholder="กรอกชื่อ-นามสกุล" value="" required="">
                             </div>
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
+                                <input type="text" class="form-control" id="tel" name="tel"
+                                    placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                            </div>
                             <hr class="my-4">
                             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit">บันทึกข้อมูล</button>
                             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit2">สร้างPDF</button>

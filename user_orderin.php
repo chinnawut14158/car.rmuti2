@@ -111,6 +111,11 @@ session_start();
                                 <input type="text" class="form-control" id="name_request" name="name_request"
                                     placeholder="กรอกชื่อ-นามสกุล" value="" required="">
                             </div>
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
+                                <input type="text" class="form-control" id="tel" name="tel"
+                                    placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                            </div>
                             <center>
 
                             </center>

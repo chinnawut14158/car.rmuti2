@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 	$time_from = $_POST['time_from'];
 	$time_to = $_POST['time_to'];
 	$name_request = $_POST['name_request'];
-
+	$tel = $_POST['tel'];
 	// echo $fname;
 
 	// Insert into Database events
@@ -23,13 +23,13 @@ if (isset($_POST['submit'])) {
 			`caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
 			`manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
 			`manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
-			`mile_end`, `status_order`, `status_orderID`, `created`) VALUES
+			`mile_end`, `status_order`, `status_orderID`, `created`, `tel`) VALUES
 			(NULL, 'ภายในเขตอำเภอเมือง', 1, '$fname', '$lname', '$position', NULL, '$request_for', 
 			'$location', '$passenger', NULL, NULL, '$date_from', '$time_from', '$date_to', '$time_to', NULL, 
 			NULL, '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
 			NULL, NULL, NULL, NULL, NULL, NULL, 
 			NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
-			NULL, 'ยังไม่เริ่มดำเนินการ', 1, current_timestamp())";
+			NULL, 'ยังไม่เริ่มดำเนินการ', 1, current_timestamp(), '$tel')";
 
 	mysqli_query($conn, $sql);
 
