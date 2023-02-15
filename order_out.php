@@ -69,22 +69,22 @@ if ($level != '1') {
                             </div>
                             <!-- ตำแหน่งงาน -->
                             <div class="col-sm-6">
-                                <label for="" class="form-label">ขออนุญาตใช้รถยนต์ราชการ เพื่อเดินทางไป</label>
-                                <input type="text" class="form-control" id="request_for" name="request_for" placeholder="กรอกรายละเอียดการเดินทาง" value="" required="">
+                                <label for="" class="form-label">ขออนุญาตใช้รถยนต์ราชการ เพื่อปฏิบัติหน้าที่</label>
+                                <input type="text" class="form-control" id="request_for" name="request_for" placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">สถานที่ไป</label>
-                                <input type="text" class="form-control" id="location" name="location" placeholder="กรอกรายละเอียดการเดินทาง" value="" required="">
+                                <input type="text" class="form-control" id="location" name="location" placeholder="กรอกรายละเอียดสถานที่เดินทาง" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
                             </div>
 
                             <div class="col-sm-12">
-                                <label for="" class="form-label">จำนวน</label>
+                                <label for="" class="form-label">จำนวนผู้เดินทาง</label>
                                 <input type="text" class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวน (คน)" value="" required="">
                                 <div class="invalid-feedback">
                                     Valid is required.

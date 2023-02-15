@@ -56,16 +56,16 @@ session_start();
                             </div>
                             <!-- ตำแหน่งงาน -->
                             <div class="col-sm-6">
-                                <label for="" class="form-label">ขออนุญาตใช้รถยนต์ราชการ เพื่อเดินทางไป</label>
-                                <input type="text" class="form-control" id="request_for" name="request_for" placeholder="กรอกรายละเอียดการเดินทาง" value="" required="">
+                                <label for="" class="form-label">ขออนุญาตใช้รถยนต์ราชการ เพื่อปฏิบัติหน้าที่</label>
+                                <input type="text" class="form-control" id="request_for" name="request_for" placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="" required="">
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">สถานที่ไป</label>
-                                <input type="text" class="form-control" id="location" name="location" placeholder="กรอกรายละเอียดการเดินทาง" value="" required="">
+                                <input type="text" class="form-control" id="location" name="location" placeholder="กรอกรายละเอียดสถานที่เดินทาง" value="" required="">
                             </div>
 
                             <div class="col-sm-6">
-                                <label for="" class="form-label">จำนวน</label>
+                                <label for="" class="form-label">จำนวนผู้เดินทาง</label>
                                 <input type="text" class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวน (คน)" value="" required="">
                             </div>
                             <div class="col-sm-3">
@@ -115,7 +115,7 @@ session_start();
                             <!-- สิ้นสุดเวลา -->
                             <!-- วันทีเดินทางกลับ -->
                             <div class="col-sm-6">
-                                <label for="" class="form-label">รวมระยะทาง</label>
+                                <label for="" class="form-label">รวมระยะทาง(กม.)</label>
                                 <input type="text" class="form-control" id="distance" name="distance" placeholder="กรอกระยะทาง" value="" required="">
                             </div>
                             <div class="col-sm-6">
@@ -135,13 +135,9 @@ session_start();
                 </div>
             </div>
         </main>
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2017–2022 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
+        <?php
+        include('footer.php');
+        ?>
         </footer>
     </div>
 </body>

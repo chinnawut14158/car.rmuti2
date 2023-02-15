@@ -154,9 +154,7 @@ if (isset($_POST['submit2'])) {
     <b>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b><br>
     แผนกรักษาความปลอดภัย&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
     ................/.............../................เวลารถออก...................................น. ลงชื่อ ...........................................................................(ตัวบรรจง)<br>
-    ................/.............../................เวลารถเข้า....................................น. ลงชื่อ ...........................................................................(ตัวบรรจง)<br></p>
-    <p><b><u>หมายเหตุ</u> ในกรณีออกนอกเส้นทาง วิทยาเขตขอนแก่น จะไม่รับผิดชอบใดๆ ทุกกรณี ผู้ขออนุญาต/ผู้ควบคุมต้องรับผิดชอบเองเท่านั้น </b></p>
-    ';
+    ................/.............../................เวลารถเข้า....................................น. ลงชื่อ ...........................................................................(ตัวบรรจง)<br></p>';
 
     // $data .= '<img src="img/outend.jpg" width="100%" height="73%"/>';
 
