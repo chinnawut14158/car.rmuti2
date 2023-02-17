@@ -63,18 +63,18 @@ session_start();
                                 <label for="" class="form-label">สถานที่ไป</label>
                                 <input type="text" class="form-control" id="location" name="location" placeholder="กรอกรายละเอียดสถานที่เดินทาง" value="" required="">
                             </div>
-
                             <div class="col-sm-6">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
-                                <input type="text" class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวน (คน)" value="" required="">
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger"
+                                    placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
                             </div>
                             <div class="col-sm-3">
                                 <label for="" class="form-label">อาจารย์ - เจ้าหน้าที่</label>
-                                <input type="text" class="form-control" id="teacher" name="teacher" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="teacher" name="teacher" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
                             </div>
                             <div class="col-sm-3">
                                 <label for="" class="form-label">นักศึกษา</label>
-                                <input type="text" class="form-control" id="student" name="student" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="student" name="student" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
                             </div>
 
                             <!-- วันที่เดินทางไป -->
@@ -116,7 +116,7 @@ session_start();
                             <!-- วันทีเดินทางกลับ -->
                             <div class="col-sm-6">
                                 <label for="" class="form-label">รวมระยะทาง(กม.)</label>
-                                <input type="text" class="form-control" id="distance" name="distance" placeholder="กรอกระยะทาง" value="" required="">
+                                <input type="number" min=1 class="form-control" id="distance" name="distance" placeholder="กรอกระยะทาง" value="" required="">
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ผู้ควบคุมรถยนต์ราชการขณะเดินทาง</label>
@@ -128,7 +128,7 @@ session_start();
                             </div>
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
-                                <input type="text" class="form-control" id="tel" name="tel"
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel"
                                     placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
                             </div>
                             <hr class="my-4">

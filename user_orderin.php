@@ -61,7 +61,7 @@ session_start();
 
                             <div class="col-sm-6">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
-                                <input type="text" class="form-control" id="passenger" name="passenger"
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger"
                                     placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
                             </div>
 
@@ -113,12 +113,9 @@ session_start();
                             </div>
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
-                                <input type="text" class="form-control" id="tel" name="tel"
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel"
                                     placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
                             </div>
-                            <center>
-
-                            </center>
                             <hr class="my-4">
                             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit">บันทึกข้อมูล</button>
                             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit2">สร้างPDF</button>

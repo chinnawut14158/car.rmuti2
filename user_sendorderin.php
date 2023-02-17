@@ -108,7 +108,7 @@ if (isset($_POST['submit2'])) {
 	<table>
 	<tr>              
 	<th class="th2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/logo.jpg" width="50" height="80"/></th>
-  	<th class="th2">มหาวิทยาลัยเทคโนโลยีอีสาน วิทยาเขตขอนแก่น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+  	<th class="th2">มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน วิทยาเขตขอนแก่น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
     แผนกยานพาหนะ งานอำนวนการ สำนักงานวิทยาเขตขอนแก่น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
     ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 	</tr>
@@ -123,12 +123,68 @@ if (isset($_POST['submit2'])) {
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เพื่อปฏิบัติหน้าที่.....................' . $request_for . '......................................................................................................................<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในวันที่..........' . $date_from . '..............เวลา..........' . $time_from . '-' . $time_to . '................น.</p>
 	<p style="text-align:right">ลงชื่อ...................' . $name_request . '...................ผู้ขออนุญาต<br>
-	(...................' . $name_request . '...................)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>';
-	$data .= '<img src="img/inend2.jpg"/>';
+	(...................' . $name_request . '...................)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+	<p style="text-align:center">เลขไมล์...................................(ก่อนใช้)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เลขไมล์...................................(ก่อนใช้)<br>
+	รถยนต์หมายเลขทะเบียน....' . $license_name . '.....&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พนักงานขับรถ..........' . $driver_name . '............&nbsp;&nbsp;&nbsp;<br>
+	....................................................................................................................................................................................................<br></p>
+	<p style="text-align:center"><b>ผู้อนุญาตให้รถยนต์ราชการออกนอกวิทยาเขตฯ</b></p>
+	<p style="text-align:center">.........................' . $manager_name . '.............................<br>
+	หัวหน้าแผนกยานพาหนะ/ผู้ได้รับมอบอำนาจ</p>
+	<b>แผนกรักษาความปลอดภัย</b>
+	<table>
+		<tr>
+		  <td>เที่ยวที่</td>
+		  <td>เวลารถออก</td>
+		  <td>เวลารถเข้า</td>
+		  <td colspan="2">ลงชื่อแผนกรักษาความปลอดภัย</td>
+		</tr>
+		<tr>
+		  <td style="width:10%" align="center">1.</td>
+		  <td></td>
+		  <td></td>
+		  <td align="lelt">เข้า</td>
+		  <td align="lelt">ออก</td>
+		</tr>
+		<tr>
+		  <td align="center">2.</td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+		<tr>
+		  <td align="center">3.</td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+		<tr>
+		  <td align="center">4.</td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+		<tr>
+		  <td align="center">5.</td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+	  </table>';
+//write PDF
+$mpdf->WriteHTML($data);
 
-	//write PDF
-	$mpdf->WriteHTML($data);
+// output to browser
+$mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf', 'D');
+	
+	// $data .= '<img src="img/inend2.jpg"/>';
 
-	// output to browser
-	$mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf', 'D');
+	// //write PDF
+	// $mpdf->WriteHTML($data);
+
+	// // output to browser
+	// $mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf', 'D');
 }
