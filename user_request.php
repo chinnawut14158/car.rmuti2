@@ -50,20 +50,20 @@ if ($level != '1') {
                                     <th>เวลาไป</th>
                                     <th>เวลากลับ</th>
                                     <th>สถานะ</th>
+                                    <th>เอกสาร</th>
                                     <th>เพิ่มข้อมูล</th>
                                     <th>ลบข้อมูล</th>
                                 </tr>
                             </thead>
                             <tbody style="background-color:ffffe0">
                                 <?php
-
                                 // ดึงข้อมูลมาจากดาต้าเบส
                                 // แสดงข้อมูลในตาราง
                                 $sql = "SELECT * FROM `events` WHERE status=1 AND in_out_id=1";
-
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
+                                        $file = $row['document'];
                                         echo "<tr>";
                                         echo "<th>" . $row['request_for'] . "</th>";
                                         echo "<th>" . $row['in_out'] . "</th>";
@@ -74,11 +74,12 @@ if ($level != '1') {
                                         echo "<th>" . $row['time_from'] . "</th>";
                                         echo "<th>" . $row['time_to'] . "</th>";
                                         echo "<th>" . 'รออนุมัติ' . "</th>";
-                                        // echo "<th><a href='order_edit.php?id=" . $row['id'] . "'input type='submit'class='btn btn-info'>แก้ไขข้อมูล</th>";
+                                        echo "<th><a href='downloadfile.php?file=" . $row['document'] . "'input type='submit'class='btn btn-info'>เอกสารที่แนบมา</th>";
                                         echo "<th><a href='check_orderin.php?id=" . $row['id'] . "'input type='submit'class='btn btn-info'>ตรวจสอบข้อมูล</th>";
                                         echo "<th><a onclick=\"return confirm('ยืนยันการลบข้อมูล ??')\" href='del_order.php?id=" . $row['id'] . "'' input type='submit'class='btn btn-danger'>ลบข้อมูล</a></th>";
                                         echo "</tr>";
                                     }
+                                    
                                 } else {
                                     echo "<tr>";
                                     echo "<th colspan='11'>ยังไม่มีคำขอใช้บริการ</th>";
@@ -105,6 +106,7 @@ if ($level != '1') {
                                     <th>เวลาไป</th>
                                     <th>เวลากลับ</th>
                                     <th>สถานะ</th>
+                                    <th>เอกสาร</th>
                                     <th>เพิ่มข้อมูล</th>
                                     <th>ลบข้อมูล</th>
                                 </tr>
@@ -118,6 +120,8 @@ if ($level != '1') {
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
+                                        $file = $row['document'];
+
                                         echo "<tr>";
                                         echo "<th>" . $row['request_for'] . "</th>";
                                         echo "<th>" . $row['in_out'] . "</th>";
@@ -128,6 +132,7 @@ if ($level != '1') {
                                         echo "<th>" . $row['time_from'] . "</th>";
                                         echo "<th>" . $row['time_to'] . "</th>";
                                         echo "<th>" . 'รออนุมัติ' . "</th>";
+                                        echo "<th><a href='downloadfile.php?file=" . $row['document'] . "'input type='submit'class='btn btn-info'>เอกสารที่แนบมา</th>";
                                         // echo "<th><a href='order_edit.php?id=" . $row['id'] . "'input type='submit'class='btn btn-info'>แก้ไขข้อมูล</th>";
                                         echo "<th><a href='check_orderout.php?id=" . $row['id'] . "'input type='submit'class='btn btn-info'>ตรวจสอบข้อมูล</th>";
                                         echo "<th><a onclick=\"return confirm('ยืนยันการลบข้อมูล ??')\" href='del_order.php?id=" . $row['id'] . "'' input type='submit'class='btn btn-danger'>ลบข้อมูล</a></th>";

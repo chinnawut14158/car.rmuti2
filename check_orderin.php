@@ -43,6 +43,7 @@ if ($level != '1') {
                                 $sql    = "SELECT * FROM events WHERE id = '" . $_GET['id'] . "'";
                                 $result = $conn->query($sql);
                                 $row    = $result->fetch_assoc();
+                                $file = $row['document'];
                             ?>
                                 <input type="hidden" class="form-control" id="id" name="id" placeholder="กรอกชื่อ" value="<?php echo $row['id']; ?>" required="">
                                 <div class="col-sm-6">
@@ -179,7 +180,8 @@ if ($level != '1') {
                                         <div class="invalid-feedback">
                                             Valid last name is required.
                                         </div>
-                                    </div>
+                                    </div><br>
+                                    
                                 </center>
                                 <hr class="my-4">
                                 <button class="w-100 btn btn-success btn-lg" type="submit" name="submit">บันทึก</button>
@@ -219,6 +221,9 @@ if ($level != '1') {
                             }
                             ?>
                     </form>
+                    <div>
+                        <button class="w-10 btn btn-success btn-lg" onclick="location.href='downloadfile.php?file=<?php $file ?>'">ดาวน์โหลดเอกสารที่แนบมา</button>
+                    </div>
                 </div>
             </div>
         </main>

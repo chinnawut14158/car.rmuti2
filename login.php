@@ -49,9 +49,10 @@
         <!-- <form> -->
             <input type="text" name="username" placeholder="username@rmuti.ac.th">
             <input type="password" name="password" placeholder="password">
+            <p style="color:#FF0000" >*สำหรับผู้ดูแลระบบเท่านั้น</p>
             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit2">เข้าสู่ระบบ</button>
         </form>
-        <br><button class="btn btn-warning" onclick="location.href='user_index.php'">ผู้ใช้ทั่วไป</button>
+        <br><button class="btn btn-warning" onclick="location.href='user_index.php'">ผู้ใช้ทั่วไป</button><p style="color:#FF0000" >*ผู้ใช้ทั่วไปสามารถคลิกที่ "ผู้ใช้ทั่วไป" เพื่อไปยังขอใช้บริการ</p>
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

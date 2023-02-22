@@ -37,8 +37,12 @@ if ($level != '1') {
                     </center>
                     <form class="needs-validation" name="from1" method="post" action="confirm_out.php" enctype="multipart/form-data">
                         <div class="row g-3">
-
-                            <div class="col-sm-6">
+                            <div class="col-sm-2">
+                                <label for="firstName" class="form-label">คำนำหน้า</label>
+                                <input type="text" class="form-control" id="pre" name="pre" placeholder="กรอกชื่อ"
+                                    value="" required="">
+                            </div>
+                            <div class="col-sm-5">
                                 <label for="firstName" class="form-label">ชื่อ</label>
                                 <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ" value="" required="">
                                 <div class="invalid-feedback">
@@ -46,7 +50,7 @@ if ($level != '1') {
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <label for="lastName" class="form-label">นามสกุล</label>
                                 <input type="text" class="form-control" id="lname" name="lname" placeholder="กรอกนามสกุล" value="" required="">
                                 <div class="invalid-feedback">

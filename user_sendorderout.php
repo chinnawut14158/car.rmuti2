@@ -21,30 +21,68 @@ if (isset($_POST['submit'])) {
     $caretaker = $_POST['caretaker'];
     $name_request = $_POST['name_request'];
     $tel = $_POST['tel'];
+    $pre = $_POST['pre'];
 
-    // Insert into Database
-    $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `fname`, `lname`, `position`, `level`, `request_for`, 
+    if (isset($_FILES["file"])) {
+        $file = $_FILES['file']['name'];
+        $tmp_name = $_FILES['file']['tmp_name'];
+    
+        $img_ex = pathinfo($file, PATHINFO_EXTENSION);
+        $img_ex_lc = strtolower($img_ex);
+    
+        $allowed_exs = array("jpg", "jpeg", "png", "docx", "pdf"); 
+    
+        if (in_array($img_ex_lc, $allowed_exs)) {
+                $document = uniqid("document-").'.'.$img_ex_lc;
+                $img_upload_path="document/".$document;
+                move_uploaded_file($tmp_name, $img_upload_path);
+
+        $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `pre`,`fname`, `lname`, `position`, `level`, `request_for`, 
+            `location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
+            `caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
+            `manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
+            `manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
+            `mile_end`, `status_order`, `status_orderID`, `tel`, `document` ,`created`) VALUES
+            (NULL, 'นอกอำเภอเมือง', 2, '$pre','$fname', '$lname', '$position', '$level', '$request_for', 
+            '$location', '$passenger', '$teacher', '$student', '$date_from', '$time_from', '$date_to', '$time_to', '$distance', 
+            '$caretaker', '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
+            NULL, NULL, NULL, NULL, NULL, NULL, 
+            NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
+            NULL, 'ยังไม่เริ่มดำเนินการ', 1, '$tel' , '$document' ,current_timestamp())";
+
+        mysqli_query($conn, $sql);
+
+        echo "<script>";
+        echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
+        echo "window.history.back()";
+        echo "</script>";
+        }
+    } else {
+
+        // Insert into Database
+        $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `pre`,`fname`, `lname`, `position`, `level`, `request_for`, 
 			`location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
 			`caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
 			`manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
 			`manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
-			`mile_end`, `status_order`, `status_orderID`, `created`, `tel`) VALUES
-			(NULL, 'นอกอำเภอเมือง', 2, '$fname', '$lname', '$position', '$level', '$request_for', 
+			`mile_end`, `status_order`, `status_orderID`, `tel`, `document`, `created`) VALUES
+			(NULL, 'นอกอำเภอเมือง', 2, '$pre','$fname', '$lname', '$position', '$level', '$request_for', 
 			'$location', '$passenger', '$teacher', '$student', '$date_from', '$time_from', '$date_to', '$time_to', '$distance', 
 			'$caretaker', '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
 			NULL, NULL, NULL, NULL, NULL, NULL, 
 			NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
-			NULL, 'ยังไม่เริ่มดำเนินการ', 1, current_timestamp(), '$tel')";
+			NULL, 'ยังไม่เริ่มดำเนินการ', 1, '$tel' , NULL, current_timestamp())";
 
-    mysqli_query($conn, $sql);
+        mysqli_query($conn, $sql);
 
-    echo "<script>";
-    echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
-    echo "window.history.back()";
-    echo "</script>";
+        echo "<script>";
+        echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
+        echo "window.history.back()";
+        echo "</script>";
+    }
 }
 if (isset($_POST['submit2'])) {
-    
+
     require_once __DIR__ . '/vendor2/autoload.php';
 
     // รับค่า

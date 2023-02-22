@@ -14,8 +14,7 @@ session_start();
     <title>CarBooking RMUTI</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 
 <body class="bg-light">
@@ -31,44 +30,39 @@ session_start();
                     <center>
                         <h4 class="mb-3">ขออนุญาตใช้รถยนต์ราชการในเขตอำเภอเมือง จังหวัดขอนแก่น</h4>
                     </center>
-                    <form class="needs-validation" name="from1" method="post" action="user_sendorderin.php"
-                        enctype="multipart/form-data">
+                    <form class="needs-validation" name="from1" method="post" action="user_sendorderin.php" enctype="multipart/form-data">
                         <div class="row g-3">
-
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">ชื่อ</label>
-                                <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ"
-                                    value="" required="">
+                            <div class="col-sm-2">
+                                <label for="firstName" class="form-label">คำนำหน้า</label>
+                                <input type="text" class="form-control" id="pre" name="pre" placeholder="กรอกคำนำหน้า" value="" required="">
                             </div>
-
+                            <div class="col-sm-4">
+                                <label for="firstName" class="form-label">ชื่อ</label>
+                                <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ" value="" required="">
+                            </div>
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">นามสกุล</label>
-                                <input type="text" class="form-control" id="lname" name="lname"
-                                    placeholder="กรอกนามสกุล" value="" required="">
+                                <input type="text" class="form-control" id="lname" name="lname" placeholder="กรอกนามสกุล" value="" required="">
                             </div>
 
                             <!-- ตำแหน่งงาน -->
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ตำแหน่ง</label>
-                                <input type="text" class="form-control" id="position" name="position"
-                                    placeholder="กรอกตำแหน่งงาน" value="" required="">
+                                <input type="text" class="form-control" id="position" name="position" placeholder="กรอกตำแหน่งงาน" value="" required="">
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">สถานที่ไป</label>
-                                <input type="text" class="form-control" id="location" name="location"
-                                    placeholder="กรอกสถานที่เดินทาง" value="" required="">
+                                <input type="text" class="form-control" id="location" name="location" placeholder="กรอกสถานที่เดินทาง" value="" required="">
                             </div>
 
                             <div class="col-sm-6">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
-                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger"
-                                    placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
                             </div>
 
                             <div class="col-sm-6">
                                 <label for="" class="form-label">เพื่อปฎิบัติหน้าที่</label>
-                                <input type="text" class="form-control" id="request_for" name="request_for"
-                                    placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="" required="">
+                                <input type="text" class="form-control" id="request_for" name="request_for" placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="" required="">
                             </div>
 
                             <!-- วันที่เดินทางไป -->
@@ -76,16 +70,14 @@ session_start();
                                 <label for="username" class="form-label">วันที่</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">วันที่ไป</span>
-                                    <input type="date" class="form-control" id="date_from" name="date_from"
-                                        placeholder="" required="">
+                                    <input type="date" class="form-control" id="date_from" name="date_from" placeholder="" required="">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label for="username" class="form-label">วันที่</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">วันที่กลับ</span>
-                                    <input type="date" class="form-control" id="date_to" name="date_to" placeholder=""
-                                        required="">
+                                    <input type="date" class="form-control" id="date_to" name="date_to" placeholder="" required="">
                                 </div>
                             </div>
                             <!-- เวลา -->
@@ -93,8 +85,7 @@ session_start();
                                 <label for="username" class="form-label">เวลาที่เดินทางไป</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">เวลาที่ไป</span>
-                                    <input type="time" class="form-control" id="time_from" name="time_from"
-                                        placeholder="Time" required="">
+                                    <input type="time" class="form-control" id="time_from" name="time_from" placeholder="Time" required="">
                                 </div>
                             </div>
                             <!-- เวลา -->
@@ -102,19 +93,20 @@ session_start();
                                 <label for="username" class="form-label">เวลาที่เดินทางกลับ</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">เวลาที่กลับ</span>
-                                    <input type="time" class="form-control" id="time_to" name="time_to"
-                                        placeholder="Time" required="">
+                                    <input type="time" class="form-control" id="time_to" name="time_to" placeholder="Time" required="">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">ลงชื่อผู้ขออนุญาต</label>
-                                <input type="text" class="form-control" id="name_request" name="name_request"
-                                    placeholder="กรอกชื่อ-นามสกุล" value="" required="">
+                                <input type="text" class="form-control" id="name_request" name="name_request" placeholder="กรอกชื่อ-นามสกุล" value="" required="">
                             </div>
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
-                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel"
-                                    placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel" placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">แนบเอกสาร(ในกรณีที่ไม่มี ไม่ต้องแนบเอกสาร)</label>
+                                <input type="file" class="form-control" id="file" name="file" value="">
                             </div>
                             <hr class="my-4">
                             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit">บันทึกข้อมูล</button>
@@ -128,15 +120,7 @@ session_start();
         <?php
         include('footer.php');
         ?>
-        <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2017–2022 Company Name</p>
-            เบอร์ติดต่อเจ้าหน้าที่ 083-678-4303 (ทดสอบ)
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer> -->
+
     </div>
 </body>
 

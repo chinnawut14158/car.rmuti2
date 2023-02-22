@@ -20,9 +20,11 @@ session_start();
     $license_plate = $_POST['state'];
 	$driver_id = $_POST['driver_id'];
     $manager_name = $_POST['manager_name'];
+    $pre = $_POST['pre'];
+    $tel = $_POST['tel'];
     
-    $_SESSION['timeST'] = "T$time_from+07:00";
-    $_SESSION['timeEND'] = "T$time_to+07:00";
+    $_SESSION['timeST'] = "T$time_from:00+07:00";
+    $_SESSION['timeEND'] = "T$time_to:00+07:00";
     $_SESSION['fname'] = "$fname";
 	$_SESSION['lname'] = "$lname";
     $_SESSION['position'] = "$position";
@@ -37,7 +39,8 @@ session_start();
     $_SESSION['license_plate'] = "$license_plate";
 	$_SESSION['driver_id'] = "$driver_id";
     $_SESSION['manager_name'] = "$manager_name";
-
+    $_SESSION['pre'] = "$pre";
+    $_SESSION['tel'] = "$tel";
 ?>
 <html lang="en">
 <head>
@@ -69,7 +72,12 @@ session_start();
                     <form class="needs-validation" name="from1" method="post" action="send_orderin.php"
                         enctype="multipart/form-data">
                         <div class="row g-3">
-                            <div class="col-sm-6">
+                            <div class="col-sm-2">
+                                <label for="firstName" class="form-label">คำนำหน้าชื่อ</label>
+                                <input type="text" class="form-control" id="pre" name="pre" placeholder="คำหน้าหน้า"
+                                    value="<?php echo $_SESSION['pre'] ?>" required="">
+                            </div>
+                            <div class="col-sm-5">
                                 <label for="firstName" class="form-label">ชื่อ</label>
                                 <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ"
                                     value="<?php echo $_SESSION['fname'] ?>" required="">
@@ -77,8 +85,7 @@ session_start();
                                     Valid first name is required.
                                 </div>
                             </div>
-
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <label for="lastName" class="form-label">นามสกุล</label>
                                 <input type="text" class="form-control" id="lname" name="lname"
                                     placeholder="กรอกนามสกุล" value="<?php echo $_SESSION['lname'] ?>" required="">
@@ -86,7 +93,6 @@ session_start();
                                     Valid last name is required.
                                 </div>
                             </div>
-
                             <!-- ตำแหน่งงาน -->
                             <div class="col-sm-12">
                                 <label for="" class="form-label">ตำแหน่ง</label>
@@ -96,7 +102,7 @@ session_start();
                                     Valid Job title is required.
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">ขออนุญาตใช้รถยนต์ ราชการ เพื่อเดินทางไป
                                     (สถานที่ไป)</label>
                                 <input type="text" class="form-control" id="location" name="location"
@@ -107,9 +113,9 @@ session_start();
                                 </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
-                                <input type="text" class="form-control" id="passenger" name="passenger"
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger"
                                     placeholder="กรอกรายละเอียดการเดินทาง" value="<?php echo $_SESSION['passenger'] ?>"
                                     required="">
                                 <div class="invalid-feedback">
@@ -117,7 +123,7 @@ session_start();
                                 </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">เพื่อปฎิบัติหน้าที่</label>
                                 <input type="text" class="form-control" id="request_for" name="request_for"
                                     placeholder="กรอกรายละเอียดการเดินทาง" value="<?php echo $_SESSION['request_for'] ?>"
@@ -125,6 +131,11 @@ session_start();
                                 <div class="invalid-feedback">
                                     Valid is required.
                                 </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel"
+                                    placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $_SESSION['tel'] ?>" required="">
                             </div>
 
                             <!-- วันที่เดินทางไป -->
@@ -224,7 +235,6 @@ session_start();
                             <input type="hidden" class="form-control" id="name_request" name="name_request"
                                         placeholder="กรอกข้อมูล" value="<?php echo $_SESSION['fname'] ,'&nbsp', $_SESSION['lname']?>"
                                         required="">
-
                             <center>
                                 <div class="col-sm-6">
                                     <label for="lastName"
@@ -237,7 +247,6 @@ session_start();
                                     </div>
                                 </div>
                             </center>
-
                                 <input type="hidden" class="form-control" id="datetimeTst" name="datetimeTst" placeholder=""
                                     value="<?php echo $_SESSION['date_from'] . $_SESSION['timeST'] ?>" required="">
                                 <input type="hidden" class="form-control" id="datetimeTend" name="datetimeTend" placeholder=""

@@ -15,10 +15,7 @@ $level = $_SESSION['userlevel'];
     <meta name="generator" content="Hugo 0.101.0">
     <title>CarBooking RMUTI</title>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
     <link href="css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -39,62 +36,49 @@ $level = $_SESSION['userlevel'];
                     <form class="needs-validation" name="from1" method="post" action="confirm_in.php"
                         enctype="multipart/form-data">
                         <div class="row g-3">
-
-                            <div class="col-sm-6">
+                            <div class="col-sm-2">
+                                <label for="firstName" class="form-label">คำนำหน้า</label>
+                                <input type="text" class="form-control" id="pre" name="pre" placeholder="กรอกชื่อ"
+                                    value="" required="">
+                            </div>
+                            <div class="col-sm-5">
                                 <label for="firstName" class="form-label">ชื่อ</label>
                                 <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ"
                                     value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
                             </div>
-
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <label for="lastName" class="form-label">นามสกุล</label>
                                 <input type="text" class="form-control" id="lname" name="lname"
                                     placeholder="กรอกนามสกุล" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
                             </div>
-
                             <!-- ตำแหน่งงาน -->
                             <div class="col-sm-12">
                                 <label for="" class="form-label">ตำแหน่ง</label>
                                 <input type="text" class="form-control" id="position" name="position"
                                     placeholder="กรอกตำแหน่งงาน" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid Job title is required.
-                                </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">ขออนุญาตใช้รถยนต์ ราชการ เพื่อเดินทางไป
                                     (สถานที่ไป)</label>
                                 <input type="text" class="form-control" id="location" name="location"
                                     placeholder="กรอกสถานที่เดินทาง" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
-                                <input type="text" class="form-control" id="passenger" name="passenger"
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger"
                                     placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
-
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">เพื่อปฎิบัติหน้าที่</label>
                                 <input type="text" class="form-control" id="request_for" name="request_for"
                                     placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
-
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel"
+                                    placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                            </div>
                             <!-- วันที่เดินทางไป -->
                             <div class="col-6">
                                 <label for="username" class="form-label">วันที่</label>
@@ -102,9 +86,6 @@ $level = $_SESSION['userlevel'];
                                     <span class="input-group-text">วันที่</span>
                                     <input type="date" class="form-control" id="date_from" name="date_from" placeholder=""
                                         required="">
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -113,9 +94,6 @@ $level = $_SESSION['userlevel'];
                                     <span class="input-group-text">วันที่</span>
                                     <input type="date" class="form-control" id="date_to" name="date_to" placeholder=""
                                         required="">
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
                                 </div>
                             </div>
                             <!-- เวลา -->
@@ -125,9 +103,6 @@ $level = $_SESSION['userlevel'];
                                     <span class="input-group-text">เวลาที่ไป</span>
                                     <input type="time" class="form-control" id="time_from" name="time_from"
                                         placeholder="Time" required="">
-                                    <div class="invalid-feedback">
-                                        Your time is required.
-                                    </div>
                                 </div>
                             </div>
                             <!-- เวลา -->
@@ -137,9 +112,6 @@ $level = $_SESSION['userlevel'];
                                     <span class="input-group-text">เวลาที่กลับ</span>
                                     <input type="time" class="form-control" id="time_to" name="time_to"
                                         placeholder="Time" required="">
-                                    <div class="invalid-feedback">
-                                        Your time is required.
-                                    </div>
                                 </div>
                             </div>
                             <!-- ----------------------------------------------------------------------------- -->
@@ -190,9 +162,6 @@ $level = $_SESSION['userlevel'];
                                     class="form-label">ผู้อนุญาตให้รถยนต์ราชการออกนอกเขตวิทยาเขตฯ</label>
                                 <input type="text" class="form-control" id="manager_name" name="manager_name"
                                     placeholder="ลงชื่อผู้ขออนุญาต" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
                             </div>
                         </center>
                         <hr class="my-4">

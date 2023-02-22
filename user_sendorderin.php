@@ -15,21 +15,57 @@ if (isset($_POST['submit'])) {
 	$time_to = $_POST['time_to'];
 	$name_request = $_POST['name_request'];
 	$tel = $_POST['tel'];
-	// echo $fname;
+	$pre = $_POST['pre'];
+
+	if (isset($_FILES["file"])) {
+		$file = $_FILES['file']['name'];
+		$tmp_name = $_FILES['file']['tmp_name'];
+
+		$img_ex = pathinfo($file, PATHINFO_EXTENSION);
+        $img_ex_lc = strtolower($img_ex);
+
+		$allowed_exs = array("jpg", "jpeg", "png", "docx", "pdf"); 
+
+		if (in_array($img_ex_lc, $allowed_exs)) {
+			$document = uniqid("document-").'.'.$img_ex_lc;
+			$img_upload_path="document/".$document;
+			move_uploaded_file($tmp_name, $img_upload_path);
+
+        $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `pre`, `fname`,`lname`, `position`, `level`, `request_for`, 
+				`location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
+				`caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
+				`manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
+				`manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
+				`mile_end`, `status_order`, `status_orderID`, `tel`, `document`, `created`) VALUES
+				(NULL, 'ภายในเขตอำเภอเมือง', 1, '$pre','$fname', '$lname', '$position', NULL, '$request_for', 
+				'$location', '$passenger', NULL, NULL, '$date_from', '$time_from', '$date_to', '$time_to', NULL, 
+				NULL, '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
+				NULL, NULL, NULL, NULL, NULL, NULL, 
+				NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
+				NULL, 'ยังไม่เริ่มดำเนินการ', 1, '$tel' , '$document', current_timestamp())";
+
+        mysqli_query($conn, $sql);
+
+        echo "<script>";
+        echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
+        echo "window.history.back()";
+        echo "</script>";
+		}
+    } else {
 
 	// Insert into Database events
-	$sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `fname`, `lname`, `position`, `level`, `request_for`, 
+	$sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `pre`, `fname`, `lname`, `position`, `level`, `request_for`, 
 			`location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
 			`caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
 			`manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
 			`manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
-			`mile_end`, `status_order`, `status_orderID`, `created`, `tel`) VALUES
-			(NULL, 'ภายในเขตอำเภอเมือง', 1, '$fname', '$lname', '$position', NULL, '$request_for', 
+			`mile_end`, `status_order`, `status_orderID`, `tel`, `document`, `created`) VALUES
+			(NULL, 'ภายในเขตอำเภอเมือง', 1, '$pre','$fname', '$lname', '$position', NULL, '$request_for', 
 			'$location', '$passenger', NULL, NULL, '$date_from', '$time_from', '$date_to', '$time_to', NULL, 
 			NULL, '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
 			NULL, NULL, NULL, NULL, NULL, NULL, 
 			NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
-			NULL, 'ยังไม่เริ่มดำเนินการ', 1, current_timestamp(), '$tel')";
+			NULL, 'ยังไม่เริ่มดำเนินการ', 1, '$tel' , NULL ,current_timestamp())";
 
 	mysqli_query($conn, $sql);
 
@@ -37,6 +73,7 @@ if (isset($_POST['submit'])) {
 	echo "alert(\"บันทึกสำเร็จ กำลังส่งข้อมูลไปยังผู้ดูแลระบบ\");";
 	echo "window.history.back()";
 	echo "</script>";
+	}
 }
 if (isset($_POST['submit2'])) {
 
@@ -174,11 +211,11 @@ if (isset($_POST['submit2'])) {
 		  <td></td>
 		</tr>
 	  </table>';
-//write PDF
-$mpdf->WriteHTML($data);
+	//write PDF
+	$mpdf->WriteHTML($data);
 
-// output to browser
-$mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf', 'D');
+	// output to browser
+	$mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf', 'D');
 	
 	// $data .= '<img src="img/inend2.jpg"/>';
 

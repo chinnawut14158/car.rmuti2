@@ -34,23 +34,26 @@ session_start();
                     </center>
                     <form class="needs-validation" name="from1" method="post" action="user_sendorderout.php" enctype="multipart/form-data">
                         <div class="row g-3">
-
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
+                                <label for="firstName" class="form-label">คำนำหน้า</label>
+                                <input type="text" class="form-control" id="pre" name="pre" placeholder="กรอกคำนำหน้า" value="" required="">
+                            </div>
+                            <div class="col-sm-4">
                                 <label for="firstName" class="form-label">ชื่อ</label>
                                 <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ" value="" required="">
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <label for="lastName" class="form-label">นามสกุล</label>
                                 <input type="text" class="form-control" id="lname" name="lname" placeholder="กรอกนามสกุล" value="" required="">
                             </div>
 
                             <!-- ตำแหน่งงาน -->
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">ตำแหน่ง</label>
                                 <input type="text" class="form-control" id="position" name="position" placeholder="กรอกตำแหน่งงาน" value="" required="">
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">ระดับ</label>
                                 <input type="text" class="form-control" id="level" name="level" placeholder="กรอกระดับ *ไม่มีใส่ -" value="">
                             </div>
@@ -65,8 +68,7 @@ session_start();
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
-                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger"
-                                    placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
                             </div>
                             <div class="col-sm-3">
                                 <label for="" class="form-label">อาจารย์ - เจ้าหน้าที่</label>
@@ -128,8 +130,11 @@ session_start();
                             </div>
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
-                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel"
-                                    placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel" placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">แนบเอกสาร(ในกรณีที่ไม่มี ไม่ต้องแนบเอกสาร)</label>
+                                <input type="file" class="form-control" id="file" name="file" value="">
                             </div>
                             <hr class="my-4">
                             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit">บันทึกข้อมูล</button>
