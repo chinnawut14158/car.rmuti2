@@ -33,13 +33,6 @@
             </ul>
           </li>
         </ul>
-
-
-        <!-- ค้นหา -->
-        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form> -->
-
         <div class="dropdown text-end">
         <ul class="nav">
             <li class="nav-item"><a href="logout.php" class="nav-link link-light px-2">ออกจากระบบ</a></li>
