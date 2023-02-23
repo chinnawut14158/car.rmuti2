@@ -28,9 +28,6 @@ session_start();
       <!-- <div class="col-sm-3">
           <button class="w-10 btn btn-success btn-lg" onclick="location.href='download.php?file=manualadmin.pdf'">ดาวน์โหลดคู่มือการใช้งาน(ผู้ดูแลระบบ)</button>                
       </div> -->
-      <center>
-      <H1>ขณะนี้อยู่ในช่วงทดสอบ รออัพเดทเวอร์ชั่นต่อไป</H1>
-      </center>
       <div class="col-sm-4">
         <button class="w-10 btn btn-success btn-lg" onclick="location.href='download.php?file=manualuser.pdf'">ดาวน์โหลดคู่มือการใช้งาน(ผู้ใช้ทั่วไป)</button>               
       </div>
