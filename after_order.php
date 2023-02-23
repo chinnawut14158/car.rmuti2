@@ -110,14 +110,9 @@ $level = $_SESSION['userlevel'];
                 </div>
             </div>
         </main>
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2017–2022 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
+        <?php
+        include('footer.php');
+        ?>
     </div>
     <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">

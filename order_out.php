@@ -39,32 +39,22 @@ if ($level != '1') {
                         <div class="row g-3">
                             <div class="col-sm-2">
                                 <label for="firstName" class="form-label">คำนำหน้า</label>
-                                <input type="text" class="form-control" id="pre" name="pre" placeholder="กรอกชื่อ"
-                                    value="" required="">
+                                <input type="text" class="form-control" id="pre" name="pre" placeholder="กรอกชื่อ" value="" required="">
                             </div>
                             <div class="col-sm-5">
                                 <label for="firstName" class="form-label">ชื่อ</label>
                                 <input type="text" class="form-control" id="fname" name="fname" placeholder="กรอกชื่อ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
                             </div>
 
                             <div class="col-sm-5">
                                 <label for="lastName" class="form-label">นามสกุล</label>
                                 <input type="text" class="form-control" id="lname" name="lname" placeholder="กรอกนามสกุล" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
                             </div>
 
                             <!-- ตำแหน่งงาน -->
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ตำแหน่ง</label>
                                 <input type="text" class="form-control" id="position" name="position" placeholder="กรอกตำแหน่งงาน" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid Job title is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ระดับ</label>
@@ -75,38 +65,26 @@ if ($level != '1') {
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ขออนุญาตใช้รถยนต์ราชการ เพื่อปฏิบัติหน้าที่</label>
                                 <input type="text" class="form-control" id="request_for" name="request_for" placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">สถานที่ไป</label>
                                 <input type="text" class="form-control" id="location" name="location" placeholder="กรอกรายละเอียดสถานที่เดินทาง" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
-
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="12" class="form-control" id="tel" name="tel" placeholder="กรอกเบอร์โทรศัพท์" value="" required="">
+                            </div>
+                            <div class="col-sm-6">
                                 <label for="" class="form-label">จำนวนผู้เดินทาง</label>
-                                <input type="text" class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวน (คน)" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวนผู้เดินทาง" value="" required="">
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">อาจารย์ - เจ้าหน้าที่</label>
-                                <input type="text" class="form-control" id="teacher" name="teacher" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="teacher" name="teacher" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">นักศึกษา</label>
-                                <input type="text" class="form-control" id="student" name="student" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=3 class="form-control" id="student" name="student" placeholder="กรอกจำนวน (คน) *ไม่มีใส่ 0" value="" required="">
                             </div>
 
                             <!-- วันที่เดินทางไป -->
@@ -115,9 +93,6 @@ if ($level != '1') {
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">วันที่</span>
                                     <input type="date" class="form-control" id="date_from" name="date_from" placeholder="Username" required="">
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
                                 </div>
                             </div>
                             <!-- วันทีเดินทางไป -->
@@ -127,9 +102,7 @@ if ($level != '1') {
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">เวลาที่ไป</span>
                                     <input type="time" class="form-control" id="time_from" name="time_from" placeholder="Time" required="">
-                                    <div class="invalid-feedback">
-                                        Your time is required.
-                                    </div>
+
                                 </div>
                             </div>
                             <!-- สิ้นสุดเวลา -->
@@ -140,9 +113,6 @@ if ($level != '1') {
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">วันที่กลับ</span>
                                     <input type="date" class="form-control" id="date_to" name="date_to" placeholder="Username" required="">
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
                                 </div>
                             </div>
                             <!-- เวลา -->
@@ -151,33 +121,21 @@ if ($level != '1') {
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">เวลาที่กลับ</span>
                                     <input type="time" class="form-control" id="time_to" name="time_to" placeholder="Time" required="">
-                                    <div class="invalid-feedback">
-                                        Your time is required.
-                                    </div>
                                 </div>
                             </div>
                             <!-- สิ้นสุดเวลา -->
                             <!-- วันทีเดินทางกลับ -->
                             <div class="col-sm-6">
                                 <label for="" class="form-label">รวมระยะทาง</label>
-                                <input type="text" class="form-control" id="distance" name="distance" placeholder="กรอกระยะทาง กม. (ใส่เป็นตัวเลข)" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=6 class="form-control" id="distance" name="distance" placeholder="กรอกระยะทาง กม. (ใส่เป็นตัวเลข)" value="" required="">
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ผู้ควบคุมรถยนต์ราชการขณะเดินทาง</label>
                                 <input type="text" class="form-control" id="caretaker" name="caretaker" placeholder="กรอกชื่อผู้รับผิดชอบ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงชื่อคนขอ</label>
                                 <input type="text" class="form-control" id="name_request" name="name_request" placeholder="กรอกชื่อผู้รับผิดชอบ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ความเห็นหัวหน้าแผนกงานยานพาหนะ</label>
@@ -189,9 +147,6 @@ if ($level != '1') {
                                     <option value="อนุมัติ">อนุมัติ</option>
                                     <option value="ไม่อนุมัติ">ไม่อนุมัติ</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">หมายเหตุ</label>
@@ -243,62 +198,50 @@ if ($level != '1') {
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ขอเบิกเบี้ยเลี้ยง</label>
-                                <input type="text" class="form-control" id="allowance" name="allowance" placeholder="กรอกเบี้ยเลี้ยง" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength=6 class="form-control" id="allowance" name="allowance" placeholder="กรอกเบี้ยเลี้ยง" value="" required="">
+
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงชื่อหัวหน้าแผนกงาน</label>
                                 <input type="text" class="form-control" id="manager_name" name="manager_name" placeholder="ลงชื่อ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">แนบเอกสาร(ในกรณีที่ไม่มี ไม่ต้องแนบเอกสาร)</label>
+                                <input type="file" class="form-control" id="file" name="file" value="">
                             </div>
                             <hr class="my-4">
                             <!-- ความเห็นผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น -->
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ความเห็นอำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
                                 <input type="text" class="form-control" id="remark_mg2" name="remark_mg2" placeholder="กรอกความเห็น" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+
                             </div>
                             <!-- ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น -->
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
                                 <input type="text" class="form-control" id="remark_mg3" name="remark_mg3" placeholder="กรอกความเห็น" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงชื่อผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
                                 <input type="text" class="form-control" id="manager2_name" name="manager2_name" placeholder="ลงชื่อ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงชื่อรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
                                 <input type="text" class="form-control" id="manager3_name" name="manager3_name" placeholder="ลงชื่อ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงวันที่ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
                                 <input type="date" class="form-control" id="manager2_date" name="manager2_date" placeholder="ลงชื่อ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+
                             </div>
                             <div class="col-sm-6">
                                 <label for="" class="form-label">ลงวันที่รองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
                                 <input type="date" class="form-control" id="manager3_date" name="manager3_date" placeholder="ลงชื่อ" value="" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
+
                             </div>
                             <hr class="my-4">
                             <button class="w-100 btn btn-success btn-lg" type="submit">บันทึก</button>
@@ -337,15 +280,10 @@ if ($level != '1') {
                 </div>
             </div>
         </main>
-
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2017–2022 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
+        <?php
+        include('footer.php')
+        ?>
     </div>
 </body>
+
 </html>

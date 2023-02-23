@@ -26,7 +26,10 @@ if (isset($_REQUEST["file"])) {
       die();
     }
   } else {
-    die("Invalid file name!");
+    echo "<script>";
+    echo "alert(\"เกิดขอผิดพลาดบางสิ่งหรือไม่มีไฟล์ในระบบ!\");";
+    echo "window.history.back()";
+    echo "</script>";
   }
 }
 

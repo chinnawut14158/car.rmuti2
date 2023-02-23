@@ -15,13 +15,6 @@
           <li><a href="user_orderout.php" class="nav-link px-2 link-light">การจองนอกเขตอำเภอเมืองขอนแก่น</a></li>
           <li><a href="user_manual.php" class="nav-link px-2 link-light">คู่มือการใช้งาน</a></li>
         </ul>
-
-
-        <!-- ค้นหา -->
-        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form> -->
-
         <div class="dropdown text-end">
         <ul class="nav">
             <li class="nav-item"><a href="login.php" class="nav-link link-light px-2">เข้าสู่ระบบ(ผู้ดูแลระบบ)</a></li>

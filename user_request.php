@@ -133,7 +133,6 @@ if ($level != '1') {
                                         echo "<th>" . $row['time_to'] . "</th>";
                                         echo "<th>" . 'รออนุมัติ' . "</th>";
                                         echo "<th><a href='downloadfile.php?file=" . $row['document'] . "'input type='submit'class='btn btn-info'>เอกสารที่แนบมา</th>";
-                                        // echo "<th><a href='order_edit.php?id=" . $row['id'] . "'input type='submit'class='btn btn-info'>แก้ไขข้อมูล</th>";
                                         echo "<th><a href='check_orderout.php?id=" . $row['id'] . "'input type='submit'class='btn btn-info'>ตรวจสอบข้อมูล</th>";
                                         echo "<th><a onclick=\"return confirm('ยืนยันการลบข้อมูล ??')\" href='del_order.php?id=" . $row['id'] . "'' input type='submit'class='btn btn-danger'>ลบข้อมูล</a></th>";
                                         echo "</tr>";
@@ -150,15 +149,9 @@ if ($level != '1') {
                 </div>
             </div>
     </main>
-
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017–2022 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-    </footer>
+    <?php
+        include('footer.php')
+        ?>
     </div>
 </body>
 

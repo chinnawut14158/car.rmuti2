@@ -34,7 +34,7 @@ if ($level != '1') {
                     <center>
                         <h4 class="mb-3">ขออนุญาตใช้รถยนต์ราชการภายนอกเขตอำเภอเมือง จังหวัดขอนแก่น</h4>
                     </center>
-                    <form class="needs-validation" name="from1" method="post" action="confirm_out.php" enctype="multipart/form-data">
+                    <form class="needs-validation" name="from1" method="post" action="downloadfile.php" enctype="multipart/form-data">
                         <div class="row g-3">
 
                             <?php
@@ -99,7 +99,11 @@ if ($level != '1') {
                                             <input type="text" class="form-control" id="location" name="location" placeholder="กรอกรายละเอียดการเดินทาง" value="<?php echo $row['location']; ?>" required="">
                                         </div>
 
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">เบอร์โทรสำหรับติดต่อ</label>
+                                            <input type="text" class="form-control" id="tel" name="tel" placeholder="กรอกจำนวน (คน)" value="<?php echo $row['tel']; ?>" required="">
+                                        </div>
+                                        <div class="col-sm-6">
                                             <label for="" class="form-label">จำนวน</label>
                                             <input type="text" class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวน (คน)" value="<?php echo $row['passenger']; ?>" required="">
                                         </div>
@@ -211,51 +215,55 @@ if ($level != '1') {
                                             <label for="" class="form-label">ลงชื่อหัวหน้าแผนกงาน</label>
                                             <input type="text" class="form-control" id="manager_name" name="manager_name" placeholder="ลงชื่อ" value="<?php echo $row['manager_name']; ?>" required="">
                                         </div>
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">เอกสารที่แนบมา</label>
+                                            <input type="text" class="form-control" id="file" name="file" value="<?php echo $row['document']; ?>">
+                                        </div>
                                         <hr class="my-4">
-                            <!-- ความเห็นผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น -->
-                            <div class="col-sm-6">
-                                <label for="" class="form-label">ความเห็นอำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
-                                <input type="text" class="form-control" id="remark_mg2" name="remark_mg2" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg2'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
-                            </div>
-                            <!-- ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น -->
-                            <div class="col-sm-6">
-                                <label for="" class="form-label">ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
-                                <input type="text" class="form-control" id="remark_mg3" name="remark_mg3" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg3'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="" class="form-label">ลงชื่อผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
-                                <input type="text" class="form-control" id="manager2_name" name="manager2_name" placeholder="ลงชื่อ" value="<?php echo $row['manager2_name'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="" class="form-label">ลงชื่อรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
-                                <input type="text" class="form-control" id="manager3_name" name="manager3_name" placeholder="ลงชื่อ" value="<?php echo $row['manager3_name'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="" class="form-label">ลงวันที่ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
-                                <input type="date" class="form-control" id="manager2_date" name="manager2_date" placeholder="ลงชื่อ" value="<?php echo $row['manager2_date'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="" class="form-label">ลงวันที่รองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
-                                <input type="date" class="form-control" id="manager3_date" name="manager3_date" placeholder="ลงชื่อ" value="<?php echo $row['manager3_date'] ?>" required="">
-                                <div class="invalid-feedback">
-                                    Valid is required.
-                                </div>
-                            </div>
+                                        <!-- ความเห็นผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น -->
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">ความเห็นอำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                            <input type="text" class="form-control" id="remark_mg2" name="remark_mg2" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg2'] ?>" required="">
+                                            <div class="invalid-feedback">
+                                                Valid is required.
+                                            </div>
+                                        </div>
+                                        <!-- ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น -->
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">ความเห็นรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                            <input type="text" class="form-control" id="remark_mg3" name="remark_mg3" placeholder="กรอกความเห็น" value="<?php echo $row['remark_mg3'] ?>" required="">
+                                            <div class="invalid-feedback">
+                                                Valid is required.
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">ลงชื่อผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                            <input type="text" class="form-control" id="manager2_name" name="manager2_name" placeholder="ลงชื่อ" value="<?php echo $row['manager2_name'] ?>" required="">
+                                            <div class="invalid-feedback">
+                                                Valid is required.
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">ลงชื่อรองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                            <input type="text" class="form-control" id="manager3_name" name="manager3_name" placeholder="ลงชื่อ" value="<?php echo $row['manager3_name'] ?>" required="">
+                                            <div class="invalid-feedback">
+                                                Valid is required.
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">ลงวันที่ผู้อำนวยการสำนักงานวิทยาเขตขอนแก่น</label>
+                                            <input type="date" class="form-control" id="manager2_date" name="manager2_date" placeholder="ลงชื่อ" value="<?php echo $row['manager2_date'] ?>" required="">
+                                            <div class="invalid-feedback">
+                                                Valid is required.
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="" class="form-label">ลงวันที่รองอธิการบดีประจำวิทยาเขตขอนแก่น</label>
+                                            <input type="date" class="form-control" id="manager3_date" name="manager3_date" placeholder="ลงชื่อ" value="<?php echo $row['manager3_date'] ?>" required="">
+                                            <div class="invalid-feedback">
+                                                Valid is required.
+                                            </div>
+                                        </div>
                             <?php
                                     }
                                 }
@@ -263,20 +271,14 @@ if ($level != '1') {
                             ?>
                             <hr class="my-4">
                             <!-- <button class="w-100 btn btn-success btn-lg" type="submit">บันทึก</button> -->
-
+                            <button class="btn btn-info" type="submit" name="submit" href='downloadfile.php?file="<?php $row['document']  ?>"'>ดาวน์โหลดเอกสารที่แนบมา</button>
                     </form>
                 </div>
             </div>
         </main>
-
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2017–2022 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
+        <?php
+        include('footer.php');
+        ?>
     </div>
 </body>
 

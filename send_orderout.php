@@ -25,6 +25,9 @@ if (isset($_POST['submit'])) {
     $name_request = $_POST['name_request'];
     $status = $_POST['status'];
     $remark = $_POST['remark'];
+    $pre = $_POST['pre'];
+	$tel = $_POST['tel'];
+	$file = $_POST['file'];
 
     $license_plate = $_POST['license_plate'];
     $vehicle_id = $_POST['vehicle_id'];
@@ -76,19 +79,20 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) == 0) {
         if (mysqli_num_rows($result2) == 0) {
+            if( !empty( $file ) ) {
             // Insert into Database				
-            $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `fname`, `lname`, `position`, `level`, `request_for`, 
+            $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`,`pre`, `fname`, `lname`, `position`, `level`, `request_for`, 
                     `location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
                     `caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
                     `manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
                     `manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
-                    `mile_end`, `status_order`, `status_orderID`, `created`) VALUES
-                    (NULL, 'นอกอำเภอเมือง', 2, '$fname', '$lname', '$position', '$level', '$request_for', 
+                    `mile_end`, `status_order`, `status_orderID`, `tel`, `document`, `created`) VALUES
+                    (NULL, 'นอกอำเภอเมือง', 2, '$pre','$fname', '$lname', '$position', '$level', '$request_for', 
                     '$location', '$passenger', '$teacher', '$student', '$date_from', '$time_from', '$date_to', '$time_to', '$distance', 
                     '$caretaker', '$name_request', 2, '$remark', '$license_plate', '$driver_id', '$allowance', '$manager_name', 
                     NOW(), '$remark_mg2', '$manager2_name', '$manager2_date', '$remark_mg3', '$manager3_name', 
                     '$manager3_date', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
-                    NULL, 'กำลังดำเนินการ', 2, current_timestamp())";
+                    NULL, 'กำลังดำเนินการ', 2, '$tel', '$file', current_timestamp())";
 
             mysqli_query($conn, $sql);
             // Insert into Database	event_google
@@ -101,10 +105,39 @@ if (isset($_POST['submit'])) {
 
             echo "<script> alert('กำลังส่งข้อมูลไปยัง ปฏิทิน'); window.location = './quickstart.php';</script>";
         } else {
-            echo "<script> alert('คนขับซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_out.php';</script>";
+            $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`,`pre`, `fname`, `lname`, `position`, `level`, `request_for`, 
+                    `location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
+                    `caretaker`, `name_request`, `status`, `remark`, `vehicle_id`, `driver_id`, `allowance`, `manager_name`, 
+                    `manager_date`, `remark_mg2`, `manager2_name`, `manager2_date`, `remark_mg3`, `manager3_name`, 
+                    `manager3_date`, `date_out`, `time_out`, `sec_out`, `date_in`, `time_in`, `sec_in`, `mile_st`, 
+                    `mile_end`, `status_order`, `status_orderID`, `tel`, `document`, `created`) VALUES
+                    (NULL, 'นอกอำเภอเมือง', 2, '$pre','$fname', '$lname', '$position', '$level', '$request_for', 
+                    '$location', '$passenger', '$teacher', '$student', '$date_from', '$time_from', '$date_to', '$time_to', '$distance', 
+                    '$caretaker', '$name_request', 2, '$remark', '$license_plate', '$driver_id', '$allowance', '$manager_name', 
+                    NOW(), '$remark_mg2', '$manager2_name', '$manager2_date', '$remark_mg3', '$manager3_name', 
+                    '$manager3_date', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
+                    NULL, 'กำลังดำเนินการ', 2, '$tel', NULL, current_timestamp())";
+
+            mysqli_query($conn, $sql);
+            // Insert into Database	event_google
+            $sql2 = "INSERT INTO `event_google` (`id`, `title`, `description`, `location`, `date_from`, `date_to`,
+                `time_from`, `time_to`, `datetimeTst`, `datetimeTend`, `created`) VALUES 
+                (NULL, '$location', '$request_for', '$location', '$date_from', '$date_to', 
+                '$time_from', '$time_to', '$datetimeTst', '$datetimeTend', current_timestamp())";
+
+            mysqli_query($conn, $sql2);
+
+            echo "<script>";
+			echo "alert(\"คนขับซ้ำ บันทึกไม่สำเร็จ\");";
+			echo "window.history.back()";
+			echo "</script>";
         }
     } else {
-        echo "<script> alert('รถซ้ำ บันทึกไม่สำเร็จ'); window.location = './order_out.php';</script>";
+        echo "<script>";
+		echo "alert(\"รถซ้ำ บันทึกไม่สำเร็จ\");";
+		echo "window.history.back()";
+		echo "</script>";
+    }
     }
 }
 if (isset($_POST['submit2'])) {
@@ -134,7 +167,7 @@ if (isset($_POST['submit2'])) {
     $manager2_name = $_POST['manager2_name'];
     $remark_mg3 = $_POST['remark_mg3'];
     $manager3_name = $_POST['manager3_name'];
-
+    $pre = $_POST['pre'];
 
     $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
     $fontDirs = $defaultConfig['fontDir'];
@@ -197,7 +230,7 @@ if (isset($_POST['submit2'])) {
     $data .= '<p style="text-align:right">วันที่.............เดือน.............พ.ศ. ................</p>
         <b>เรียน</b> รองอธิการบดีประจำวิทยาเขตขอนแก่น<br>
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า...........................' . $fname . '..' . $lname . '...........................ตำแหน่ง..............' . $position . '.................ระดับ...................' . $level . '.................<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า........................' . $pre . '&nbsp;' . $fname . '..' . $lname . '...........................ตำแหน่ง..............' . $position . '.................ระดับ...................' . $level . '.................<br>
         มีความประสงค์ ขออนุญาตใช้รถยนต์ราลการ มหาวิทยาลัยเทคโนโลยีอีสาน วิทยาเขตขอนแก่น เพื่อปฏิบัติราชการ 
         .....................................' . $request_for . '.......................สถานที่......................................' . $location . '................................<br>
         โดยมีผู้เดินทาง.................' . $passenger . '.................คน  <input type="radio" id="vehicle1" name="vehicle1" value="Bike">
@@ -206,8 +239,8 @@ if (isset($_POST['submit2'])) {
         ในวันที่..............' . $date_from . '..............เวลา ..............' . $time_from . '..............น. ถึงวันที่..............' . $date_to . '..............เวลา ..............' . $time_to . '..............น.<br>
         รวมระยะทาง.................' . $distance . '.................กม. โดยมอบให้...........................' . $caretaker . '...........................เป็นผู้ควบคุมรถยนต์ราชการขณะเดินทาง<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จึงเรียนมาเพื่อโปรดพิจารณา<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ลงชื่อ..................' . $name_request . '....................ผู้ขออนุญาต<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(....................' . $name_request . '....................)<br></p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ลงชื่อ...........' . $pre . '&nbsp;' . $name_request . '.............ผู้ขออนุญาต<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(.............' . $pre . '&nbsp;' . $name_request . '.............)<br></p>
         <p>ความเห็นหัวหน้าแผนกงานยานพาหนะ<br>
         <input type="radio">ไม่สามารถให้บริการได้ เนื่องจาก ............................................................................<br>
         <input type="radio">พิจารณาแล้ว เห็นควรให้ใช้รถยนต์ราชการ หมายเลขทะเบียน พร้อมพนักงานขับรถ ดังนี้<br>
