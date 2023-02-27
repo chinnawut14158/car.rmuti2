@@ -30,6 +30,10 @@ if (isset($_POST['submit'])) {
 			$document = uniqid("document-").'.'.$img_ex_lc;
 			$img_upload_path="document/".$document;
 			move_uploaded_file($tmp_name, $img_upload_path);
+			$document2 = $document;
+		}
+	}
+	if( !empty( $file ) ) {
 
         $sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `pre`, `fname`,`lname`, `position`, `level`, `request_for`, 
 				`location`, `passenger`, `teacher`, `student`, `date_from`, `time_from`, `date_to`, `time_to`, `distance`, 
@@ -42,7 +46,7 @@ if (isset($_POST['submit'])) {
 				NULL, '$name_request', 1, NULL, NULL, NULL, NULL, NULL, 
 				NULL, NULL, NULL, NULL, NULL, NULL, 
 				NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
-				NULL, 'ยังไม่เริ่มดำเนินการ', 1, '$tel' , '$document', current_timestamp())";
+				NULL, 'ยังไม่เริ่มดำเนินการ', 1, '$tel' , '$document2', current_timestamp())";
 
         mysqli_query($conn, $sql);
 
@@ -51,7 +55,7 @@ if (isset($_POST['submit'])) {
         echo "window.history.back()";
         echo "</script>";
 		}
-    } else {
+	if( empty( $file ) ) {
 
 	// Insert into Database events
 	$sql = "INSERT INTO `events` (`id`, `in_out`, `in_out_id`, `pre`, `fname`, `lname`, `position`, `level`, `request_for`, 
@@ -90,6 +94,7 @@ if (isset($_POST['submit2'])) {
 	$time_from =  $_POST['time_from'];
 	$time_to =  $_POST['time_to'];
 	$name_request =  $_POST['name_request'];
+	$pre =  $_POST['pre'];
 
 	$defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 	$fontDirs = $defaultConfig['fontDir'];
@@ -138,7 +143,6 @@ if (isset($_POST['submit2'])) {
 	.th2 {
 	border: 1px solid white;
 	font-size: 18px;
-
 	}
 	</style>
 	</div>
@@ -216,12 +220,4 @@ if (isset($_POST['submit2'])) {
 
 	// output to browser
 	$mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf', 'D');
-	
-	// $data .= '<img src="img/inend2.jpg"/>';
-
-	// //write PDF
-	// $mpdf->WriteHTML($data);
-
-	// // output to browser
-	// $mpdf->Output('ใบขออนุญาตใช้รถยนต์ราชการภายในอำเภอเมืองจังหวัดขอนแก่น.pdf', 'D');
 }

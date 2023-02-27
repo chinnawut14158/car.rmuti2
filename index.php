@@ -40,7 +40,7 @@ if ($level != '1') {
 
   <div class="container">
     <center>
-      <h1>ปฏิทินการเดินรถ</h1>
+      <h1>ปฏิทินการเดินรถ คณะวิศวกรรมศาสตร์</h1>
     </center>
     <div class="row g-5">
       <div class="col-md-7 col-lg-12" style="padding:0px 0px 0px 0px;">

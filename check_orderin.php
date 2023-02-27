@@ -54,27 +54,17 @@ if ($level != '1') {
                                 <div class="col-sm-6">
                                     <label for="lastName" class="form-label">นามสกุล</label>
                                     <input type="text" class="form-control" id="lname" name="lname" placeholder="กรอกนามสกุล" value="<?php echo $row['lname']; ?>" required="">
-                                    <div class="invalid-feedback">
-                                        Valid last name is required.
-                                    </div>
                                 </div>
                                 <!-- ตำแหน่งงาน -->
                                 <div class="col-sm-12">
                                     <label for="" class="form-label">ตำแหน่ง</label>
                                     <input type="text" class="form-control" id="position" name="position" placeholder="กรอกตำแหน่งงาน" value="<?php echo $row['position']; ?>" required="">
-                                    <div class="invalid-feedback">
-                                        Valid Job title is required.
-                                    </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <label for="" class="form-label">ขออนุญาตใช้รถยนต์ ราชการ เพื่อเดินทางไป
                                         (สถานที่ไป)</label>
                                     <input type="text" class="form-control" id="location" name="location" placeholder="กรอกสถานที่เดินทาง" value="<?php echo $row['location']; ?>" required="">
-                                    <div class="invalid-feedback">
-                                        Valid is required.
-                                    </div>
                                 </div>
-
                                 <div class="col-sm-12">
                                     <label for="" class="form-label">จำนวนผู้เดินทาง</label>
                                     <input type="text" class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวนผู้เดินทาง" value="<?php echo $row['passenger']; ?>" required="">
@@ -85,9 +75,6 @@ if ($level != '1') {
                                 <div class="col-sm-12">
                                     <label for="" class="form-label">เพื่อปฎิบัติหน้าที่</label>
                                     <input type="text" class="form-control" id="request_for" name="request_for" placeholder="กรอกวัตถุประสงค์ในการเดินทาง" value="<?php echo $row['request_for']; ?>" required="">
-                                    <div class="invalid-feedback">
-                                        Valid is required.
-                                    </div>
                                 </div>
                                 <!-- วันที่เดินทางไป -->
                                 <div class="col-6">
@@ -95,9 +82,6 @@ if ($level != '1') {
                                     <div class="input-group has-validation">
                                         <span class="input-group-text">วันที่</span>
                                         <input type="date" class="form-control" id="date_from" name="date_from" placeholder="" required="" value="<?php echo $row['date_from']; ?>">
-                                        <div class="invalid-feedback">
-                                            Your username is required.
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -105,9 +89,6 @@ if ($level != '1') {
                                     <div class="input-group has-validation">
                                         <span class="input-group-text">วันที่</span>
                                         <input type="date" class="form-control" id="date_to" name="date_to" placeholder="" required="" value="<?php echo $row['date_to']; ?>">
-                                        <div class="invalid-feedback">
-                                            Your username is required.
-                                        </div>
                                     </div>
                                 </div>
                                 <!-- เวลา -->
@@ -116,9 +97,6 @@ if ($level != '1') {
                                     <div class="input-group has-validation">
                                         <span class="input-group-text">เวลาที่ไป</span>
                                         <input type="time" class="form-control" id="time_from" name="time_from" placeholder="Time" required="" value="<?php echo $row['time_from']; ?>">
-                                        <div class="invalid-feedback">
-                                            Your time is required.
-                                        </div>
                                     </div>
                                 </div>
                                 <!-- เวลา -->
@@ -222,7 +200,7 @@ if ($level != '1') {
                             ?>
                     </form>
                     <div>
-                        <button class="w-10 btn btn-success btn-lg" onclick="location.href='downloadfile.php?file=<?php $file ?>'">ดาวน์โหลดเอกสารที่แนบมา</button>
+                        <!-- <button class="w-10 btn btn-success btn-lg" onclick="location.href='downloadfile.php?file=<?php $file ?>'">ดาวน์โหลดเอกสารที่แนบมา</button> -->
                     </div>
                 </div>
             </div>

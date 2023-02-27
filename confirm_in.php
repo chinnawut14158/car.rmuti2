@@ -56,6 +56,11 @@ if (in_array($img_ex_lc, $allowed_exs)) {
     $_SESSION['file'] = "$file";
     $_SESSION['document'] = "$document";
 }
+
+if( empty($file)){
+    $_SESSION['file'] = NULL;
+    $_SESSION['document'] = NULL;
+}
 ?>
 <html lang="en">
 
@@ -169,9 +174,6 @@ if (in_array($img_ex_lc, $allowed_exs)) {
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">เวลาที่ไป</span>
                                     <input type="text" class="form-control" id="time_from" name="time_from" placeholder="Time" required="" value="<?php echo $_SESSION['time_from'] ?>">
-                                    <div class="invalid-feedback">
-                                        Your time is required.
-                                    </div>
                                 </div>
                             </div>
                             <!-- เวลา -->
@@ -180,9 +182,6 @@ if (in_array($img_ex_lc, $allowed_exs)) {
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">เวลาที่กลับ</span>
                                     <input type="text" class="form-control" id="time_to" name="time_to" placeholder="Time" required="" value="<?php echo $_SESSION['time_to'] ?>">
-                                    <div class="invalid-feedback">
-                                        Your time is required.
-                                    </div>
                                 </div>
                             </div>
                             <?php
@@ -236,9 +235,6 @@ if (in_array($img_ex_lc, $allowed_exs)) {
                                         <div class="col-sm-6">
                                             <label for="lastName" class="form-label">ผู้อนุญาตให้รถยนต์ราชการออกนอกเขตวิทยาเขตฯ</label>
                                             <input type="text" class="form-control" id="manager_name" name="manager_name" placeholder="กรอกข้อมูล" value="<?php echo $_SESSION['manager_name'] ?>" required="">
-                                            <div class="invalid-feedback">
-                                                Valid last name is required.
-                                            </div>
                                         </div>
                                     </center>
                                     <input type="hidden" class="form-control" id="datetimeTst" name="datetimeTst" placeholder="" value="<?php echo $_SESSION['date_from'] . $_SESSION['timeST'] ?>" required="">

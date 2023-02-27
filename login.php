@@ -47,8 +47,8 @@
     <center><h1 style="color:#000000; font-size:30px; margin-bottom:32px; margin-top:30px;">Login</h1></center>
     <form  name="formlogin" action="checklogin.php" method="POST" id="login" class="form-horizontal">
         <!-- <form> -->
-            <input type="text" name="username" placeholder="username@rmuti.ac.th">
-            <input type="password" name="password" placeholder="password">
+            <input type="text" name="username" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
             <p style="color:#FF0000" >*สำหรับผู้ดูแลระบบเท่านั้น</p>
             <button class="w-100 btn btn-success btn-lg" type="submit" name="submit2">เข้าสู่ระบบ</button>
         </form>
