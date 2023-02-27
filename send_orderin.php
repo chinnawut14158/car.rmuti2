@@ -37,7 +37,6 @@ if (isset($_POST['submit'])) {
 	$_SESSION['head'] = 'ภายในอำเภอเมือง';
 	$_SESSION['timeGST'] = $datetimeTst;
 	$_SESSION['timeGEND'] = $datetimeTend;
-
 	$_SESSION['in_out'] = 'จองภายในอำเภอเมือง';
 
 	// echo $_SESSION['timeGST'];
