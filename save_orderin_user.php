@@ -21,7 +21,6 @@ if (isset($_POST['submit'])) {
 	$driver_id = $_POST['driver_id'];
 	$manager_name = $_POST['manager_name'];
 	$name_request = $_POST['name_request'];
-    $manager_name = $_POST['manager_name'];
     
     $_SESSION['license_plate'] = "$license_plate";
 	$_SESSION['driver_id'] = "$driver_id";

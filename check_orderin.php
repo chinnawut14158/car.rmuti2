@@ -68,9 +68,6 @@ if ($level != '1') {
                                 <div class="col-sm-12">
                                     <label for="" class="form-label">จำนวนผู้เดินทาง</label>
                                     <input type="text" class="form-control" id="passenger" name="passenger" placeholder="กรอกจำนวนผู้เดินทาง" value="<?php echo $row['passenger']; ?>" required="">
-                                    <div class="invalid-feedback">
-                                        Valid is required.
-                                    </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <label for="" class="form-label">เพื่อปฎิบัติหน้าที่</label>
