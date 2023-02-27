@@ -127,6 +127,9 @@ if (isset($_POST['submit'])) {
 
             mysqli_query($conn, $sql2);
 
+            echo "<script> alert('กำลังส่งข้อมูลไปยัง ปฏิทิน'); window.location = './quickstart.php';</script>";
+            }
+        } else {
             echo "<script>";
 			echo "alert(\"คนขับซ้ำ บันทึกไม่สำเร็จ\");";
 			echo "window.history.back()";
@@ -137,7 +140,6 @@ if (isset($_POST['submit'])) {
 		echo "alert(\"รถซ้ำ บันทึกไม่สำเร็จ\");";
 		echo "window.history.back()";
 		echo "</script>";
-    }
     }
 }
 if (isset($_POST['submit2'])) {
